@@ -1,0 +1,16 @@
+body { background: #222 url(../i/invader_bg.png) center center no-repeat fixed; }
+h1 a { color: #f0f; }
+h1 a:hover { color: #69a; }
+
+
+.date { display: block; float: right; font-size: .9em; font-weight: bold; padding: .3em; background: rgba(0,0,0,0.2); border-radius: .2em; border: 1px solid rgba(255,255,255,0.1); }
+
+.post { margin: 1em 0;  background: rgba(0,0,0,0.4); border-radius: .5em; display: block; float: left;  width: 100%; }
+.post_inner { padding: 1em; }
+.post a { color: #87CEEB;}
+.post a:hover { text-decoration: underline; }
+
+
+h3 { color: #0d0; text-align: left; margin-top: 1em;  text-shadow: #000 5px 5px 0; font: 27px 'SilkscreenExpandedBold', Arial, sans-serif;letter-spacing: 0; }
+
+

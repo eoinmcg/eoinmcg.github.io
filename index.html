@@ -1,27 +1,198 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
-	<title>eoinmcg</title>
+	<title>Mobile Arcade | by @eoinmcg</title>
 
+    <meta name="keywords" content="games, online games, mobile games, html5 games" />
+    <meta name="description" content="Online mobile games arcade, play for free on your phone" />
+    <meta name="author" content="Eoin McGrath" />
 
-<style type="text/css">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-body { background-color: #000; background-repeat: no-repeat; background-position: center center; min-height: 100vh; overflow: hidden; transition: background-image 1s ease; }
-body.avatar { background-image: url(avatar.png); }
+	<link rel="stylesheet" href="assets/fonts/silkscreen/stylesheet.css" type="text/css" />
+	<link rel="stylesheet" href="assets/css/arcade.css" type="text/css" />
 
-
-</style>
+    <link rel="apple-touch-startup-image" href="applestart.png" />
+    <link rel="apple-touch-icon" href="appleicon.png" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 </head>
-<body>
-	
 
+<body>
+
+<div id="arcade">
+
+    <h1> Mobile Arcade </h1> 
+    <canvas></canvas>
+
+    <h2>Games to play on your phone, tablet and laptop!</h2>
+
+    <p class="intro">
+    Play on your phone (or browser) with no need to install apps!
+    <br />
+    Check out some games and demos I've made
+    </p>
+    <p class="note">
+    All titles are optimised for Mobile devices
+    </p>
+
+
+    <div class="game">
+        <a href="http://www.lexaloffle.com/bbs/?tid=3003&autoplay=1#pp">
+        <div class="icon">
+            <img src="pisteoff128.png" alt="Piste Off" />
+        </div>
+        <div class="desc">
+            <strong>Piste Off</strong>
+            <p>
+                Made with <a href="">pico8</a>
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/moonshine/">
+        <div class="icon">
+            <img src="moonshine128.png" alt="Moonshine" />
+        </div>
+        <div class="desc">
+            <strong>Escape from Skull Towers</strong>
+            <p>
+                Collect diamonds, get combos try to escape
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/roboflip/">
+        <div class="icon">
+            <img src="roboflip128.png" alt="RoboFlip" />
+        </div>
+        <div class="desc">
+            <strong>RoboFlip</strong>
+            <p>
+                Entry for 2015 js13kgames.com
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/buzzoff/">
+        <div class="icon">
+            <img src="buzzoff128.png" alt="Buzz Off" />
+        </div>
+        <div class="desc">
+            <strong>Buzz Off</strong>
+            <p>
+                Entry for 2014 js13kgames.com
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/flappysaucer/">
+        <div class="icon">
+            <img src="flappy128.png" alt="Flappy Saucer" />
+        </div>
+        <div class="desc">
+            <strong>Flappy Saucer</strong>
+            <p>
+                Flappy Bird clone<br />
+								<small>
+									<a href="https://eoinmcg.github.io/flappysaucer/tutorial.html">Tutorial: how this game was made</a>
+								</small>
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/freebird/">
+        <div class="icon">
+            <img src="freebird128.png" alt="Freebird" />
+        </div>
+        <div class="desc">
+            <strong>Freebird</strong>
+            <p>
+                Help the birdie escape to freedom!<br />
+                Avoid the birds, bees and other nasties.
+            </p>
+        </div>
+        </a>
+    </div>
+
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/mobile_snake/">
+        <div class="icon">
+            <img src="snake128.png" alt="Mobile Snake" />
+        </div>
+        <div class="desc">
+            <strong>Mobile Snake</strong>
+            <p>
+                Entry for the 2nd hashBBG.com competition 
+                <br /><br />
+                The challenge was to build a <em>bullet hell shoot 'em up</em> in 12 hours
+            </p>
+        </div>
+        </a>
+    </div>
+
+    <div class="game">
+        <a href="https://eoinmcg.github.io/bumblebomber/">
+        <div class="icon">
+            <img src="bumbleicon128.png" alt="BumbleBomber icon" />
+        </div>
+        <div class="desc">
+            <strong>BumbleBomber</strong>
+            <p>
+                Entry for the 2nd hashBBG.com competition 
+                <br /><br />
+                The challenge was to build a <em>bullet hell shoot 'em up</em> in 12 hours
+            </p>
+        </div>
+        </a>
+    </div>
+
+
+
+
+
+</div>
+
+<footer>
+&copy; <a href="http://twitter.com/eoinmcg">@eoinmcg</a>
+</footer>
+
+<div id="tweet_me">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="eoinmcg">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<script src="assets/js/libs/blocks.js"></script>
 
 <script>
-window.addEventListener('load', function() {
-	document.getElementsByTagName('body')[0].className = 'avatar';
-}, false);
+
+    window.addEventListener('load', function() {
+        SF.options.strokeWidth = 1;
+        SF.options.strokeStyle = '#0e232e';
+        SF.options.xStart = 180;
+        SF.renderBlocks.col = '#9ade00';
+        
+        SF.init();
+
+    }, false);
+
+
 </script>
+
 </body>
 </html>

@@ -1,0 +1,38 @@
+body { background: #0e232e; color: #fff; margin: 1em; 
+font-size: 1em;
+font-family: 'Droid Sans', Helvetica, Arial, sans-serif; }
+::selection { background: #fff; }
+::-moz-selection { background: #fff; }
+a { color: #fff; text-decoration: none; }
+a:hover { color: #f0f; text-decoration: none; }
+h1 { color: #9ade00; text-align: center; margin-top: 1em;  text-shadow: #000 5px 5px 0; font: 42px 'SilkscreenExpandedBold', Arial, sans-serif;letter-spacing: 0; }
+
+
+h2 { text-align: center; }
+
+canvas { margin: 0 auto 2em auto; display: block; width: 320px; height: 100px; }
+footer { display: inline-block; clear: both; width: 100%; margin: 10em 0 2em 0; text-align: center; font: 16px 'SilkscreenExpandedBold'; color: #fff; }
+
+#arcade { margin: 0 auto; max-width: 600px; min-width: 250px;  }
+
+p.intro { font-size: 1.1em; text-shadow: #000 1px 1px 0; }
+p.note { font-size: 1.1em; text-shadow: #000 1px 1px 0; text-align: center; font-style: italic;}
+p em { text-align: center; }
+
+.game { margin: 1em; background: rgba(0,0,0,0.4); border-radius: .5em; display: block; float: left; padding: 1em; width: 90%; }
+.game a { color: #fff;  }
+.game p { margin-top: 0; }
+.game:hover { background: rgba(0,0,0,1); }
+.game:hover a strong { color: #f0f; }
+.game:hover a { color: #f0f; }
+
+.icon { display: block; float: left; width: 20%;  }
+.icon img { width: 100%; border-radius: 10px; }
+
+.desc { display: block; float: left; margin-left: 5%; width: 70%; }
+.desc strong { font-size: 150%; color: #fff; }
+.desc p { padding: 1em 0; }
+
+#tweet_me { position: absolute; top: 1em; left: 1em; }
+
+@media only screen and (max-width : 320px) { }
