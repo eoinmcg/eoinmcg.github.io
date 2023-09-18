@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Bewitched! - A Postmortem</title>
+
+    <meta name="keywords" content="js13kgames, gamedev, javascript, eoin mcgrath" />
+    <meta name="description" content="" />
+    <meta name="author" content="Eoin McGrath" />
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="stylesheet" href="../assets/fonts/silkscreen/stylesheet.css" type="text/css" />
+	<link rel="stylesheet" href="../assets/css/arcade.css" type="text/css" />
+
+    <link rel="shortcut icon" href="i/cat.gif" type="image/x-icon" />
+
+</head>
+
+<body>
+
+<div id="arcade" class="post">
+
+  <h1> Bewitched!<br> <small>A postmortem</small></h1> 
+
+
+
+    <h2>Intro</h2>
+    <p>The <a href="https://js13kgames.com">js13kgames</a> jam is a yearly event in which devs are challenged to make a game in less than 13k(zipped). Running since 2012 it's pretty popular and has spawned a quite a <a href="https://js13kgames.com/entries/q1k3">few</a> <a href="https://js13kgames.com/entries/dante">amazing</a> games.</p>
+
+    <p>I had entered <a href="https://js13kgames.com/entries/bunny-lost">previous</a> <a href="https://js13kgames.com/entries/day-of-the-glitch">years</a>. Recently, work and other commitments had got in the way. This year, I was determined to knock something out.</p>
+
+    <h2>Ideas</h2>
+    <p>
+    The 2023 theme was <em>The 12th Century</em>. A quick bit of googling turned up famous events from the period. But nothing got my creative juices flowing.
+    </p>
+
+    <p>
+    That distant period, for me, conjures up images of magic, witches and superstition. So, I decided to run with that. Who needs meticulous research? Time to bring out the GIMP. After pushing some pixels, the following was produced:
+  </p>
+
+  <div class="imgs">
+      <img src="i/witch.png" alt="Witch on broomstich with cat" width="128"  />
+
+      <img src="i/spider.gif" alt="spider" width="32" />
+
+      <img src="i/bat.gif" alt="bat" width="64" />
+
+      <img src="i/cat.gif" alt="bat" width="64" />
+  </div>
+
+    <p>
+    One main goal was to make the game playable on mobile devices. This meant simple controls and something that worked well in portrait mode. Setting the game in a tower addressed the portrait mode issue. As for controls tapping left to move left and vice versa seemed a simple solution.
+    </p>
+
+    <p>
+      <img src="i/mock.gif" class="center" alt="Mockup screenshot" width="320">
+    </p>
+
+    <p>Rescue the cat and escape the tower.</p>
+
+    <h2>Tooling</h2>
+    <p>
+    AKA, the un-fun part of web dev. Previous years I had used webpack for bundling etc. Webpack needs a bit of configuration, though. As time was limited I didn't fancy losing valuable dev time on plumbing. Having heard great things about <a href="https://esbuild.github.io/">esbuild</a>, I decided to give it a whirl. Set up was a breeze and I was quickly up and running. 
+    </p>
+
+    <code>
+    "start": "esbuild --bundle src/game/index.js --outfile=public/game.js --servedir=public --sourcemap --serve=8013",
+    </code>
+
+    <p>Local dev server, source map and lightening fast builds. Not bad for a single line in package.json and no pesky config files to be seen. Time to get hacking. </p>
+
+    <h2>Dev</h2>
+    <p>
+    I like to keep things simple. No great technical innovations, here. Just reliable old 2d &lt;canvas&gt; with a infusion of javascript. Resolution was set to a paltry 320x480 and then scaled up via CSS. Tiny graphics can now be scaled up for that retro pixelated look. Space is at a premium, remember?
+    </p>
+
+    <p>The jam has a generous month to develop your game. I was a little late to the party, though. Work only started the weekend before the deadline. Borrowing the structure from my <a href="https://js13kgames.com/entries/enjoy-the-sunshine-get-offline">last entry</a> I dived straight in.</p>
+
+    <p>Rather than creating a tiled map and the necessary overhead, I decided it would be easier if ledges where just standard entities for landing, reusing simple collision detection. This would save precious bytes and speed up development.</p>
+
+    <p>From here on, it was a simple case of adding different types of baddies and designing some levels.</p>
+
+    <h2>Juicing</h2>
+    <p>Following in the footsteps of the masters, it was time to add a <a href="https://www.youtube.com/watch?v=Fy0aCDmgnxg">bit of polish</a>.</p>
+
+    <p>First up was some hair for our heroine. Recalling that the original <a href="https://www.lexaloffle.com/bbs/?tid=2145">Celeste PICO8</a> demo had a cool hair effect, I decided to <s>steal</s> borrow inspiration.</p>
+
+    <code>
+      let r = 8; // radius
+      let last = {x: this.x, y: this.y}
+      this.hair.forEach((h, n) => {
+        r--;
+        h.x += (last.x - h.x) / 1.5;
+        h.y += (last.y + yOff - h.y) / 1.3;
+        this.g.draw.circle(h.x, h.y, r, this.hairColor);
+        last = h;
+      })
+    </code>
+
+    <p>
+    Cheap and effective...
+    <img src="i/hair.gif" class="center" alt="Witches hair">
+    </p>
+
+    <p>
+      Throw in a basic particle entity and we're almost there.
+    </p>
+
+    <p>
+       <b>Note: </b> During development, I decided to ditch the witches hat and make our character brighter. This helped contrast with the dark background.
+    </p>
+
+    <h2>Panic</h2>
+    <p>Basking in the glow of an almost finished game, I decided to test it on mobile. iOS nicely perfomant. Firefox on Android all good. Chrome on Android, should be excellent, right? Wait, what!! Contrary to expectations the game was un-playable on Chrome / Android. About as fast a cow with a sprained ankle running under water. Not the Sunday evening vibe I was hoping for. I tracked the issue down to the 'hair physics' and other elements using the standard canvas API for drawing circles. With no time to port my rendering to Web GL or using images, I decided to reduce these circles for Chrome. ¯\_(ツ)_/¯  </p>
+
+    <h2>What went well</h2>
+    <ul class="good">
+      <li>Adding SFX was a breeze with the excellent <a href="https://github.com/KilledByAPixel/ZzFX">ZzFX</a>.</li>
+      <li>Keeping the idea simple and avoiding feature creep.</li>
+      <li>Tinkering with game dev after a long break!</li>
+    </ul>
+
+    <h2>What went not so well</h2>
+    <ul class="bad">
+      <li>Not testing on mobile until close to the deadline :\</li>
+      <li>Designing levels by manually updating an array was pretty lo-tech.</li>
+    </ul>
+
+    <h2>What I would've done different</h2>
+    <ul class="idea">
+      <li>Time was my biggest constraint so starting earlier would've helped.</li>
+      <li>Adding music. Although, composition etc looks pretty tricky for a newcomer.</li>
+      <li>Would've been cool to have a few people playtest the game and incorporate feedback.</li>
+      <li>Added a level editor to design better levels, quicker.</li>
+    </ul>
+
+    <h2>Wrap up</h2>
+    <p>All in all, it was a lot of fun making this game. Now to get playing <a href="https://js13kgames.com/entries/2023">all the other entries...</a> </p>
+
+</div>
+
+<footer>
+&copy; <a href="http://twitter.com/eoinmcg">@eoinmcg</a>
+</footer>
+
+<div id="tweet_me">
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="eoinmcg">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149691096-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149691096-1');
+</script>
+
+</body>
+</html>
+
