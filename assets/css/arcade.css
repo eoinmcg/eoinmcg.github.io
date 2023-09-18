@@ -34,7 +34,7 @@ footer { display: inline-block; clear: both; width: 100%; margin: 10rem 0 2rem 0
 .post { margin-top: 3rem; }
 .post h1 { margin-top: 2rem; }
 .post img {  image-rendering: pixelated; display: block; }
-.post img.center { margin: 1rem auto; }
+.post img.center { margin: 1rem auto; border: 5px solid rgba(0,0,0,0.2); border-radius: 2px; }
 .post p { line-height: 1.6rem; }
 
 .post ul { list-style-type: none; margin: 0; padding: 0; }
