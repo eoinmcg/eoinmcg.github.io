@@ -31,8 +31,8 @@ footer { display: inline-block; clear: both; width: 100%; margin: 10rem 0 2rem 0
 
 
 
-.post { margin-top: 2rem; }
-.post h1 { padding-top: 2rem; }
+.post { margin-top: 3rem; }
+.post h1 { margin-top: 2rem; }
 .post img {  image-rendering: pixelated; display: block; }
 .post img.center { margin: 1rem auto; }
 .post p { line-height: 1.6rem; }
