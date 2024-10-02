@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
+	<title>Eoin McGrath - Web Developer</title>
+	<subtitle>Full stack web developer. 20+ years experience. Specializing in Laravel, React, Vue and vanilla javascript.</subtitle>
+	<link href="https://eoinmcgrath.com.com/feed/feed.xml" rel="self"/>
+	<link href="https://eoinmcgrath.com.com/"/>
+	<updated>2024-10-02T15:38:34Z</updated>
+	<id>https://eoinmcgrath.com.com/</id>
+	<author>
+		<name>Eoin McGrath</name>
+		<email>eoin@eoinmcgrath.com</email>
+	</author>
+</feed>
