@@ -10,16 +10,23 @@ let c,
 let now = 0,
 	prev = 0,
 	dt = 0;
-// const sfx = new Audio('pop.mp3');
+let pageName = '';
 
 document.addEventListener("DOMContentLoaded", () => {
-	document.querySelector("body").classList.add("loaded");
+	pageClass = document.body.classList.forEach((c) => {
+		if (c.indexOf('page--') != -1) {
+			pageName = c.split('--').pop();
+		}
+	});
 	c = document.createElement("canvas");
 	c.classList.add("bg-canvas");
 	ctx = c.getContext("2d");
 	document.body.appendChild(c);
-	bubbles.push(new Bubble({ x: 200 }));
-	loop();
+	handleResize();
+	if (pageName === '404') {
+		addNextBubble();
+		loop();
+	}
 	loadIcons();
 });
 
@@ -29,7 +36,6 @@ window.addEventListener("mousedown", handleClick, false);
 function handleResize() {
 	W = window.innerWidth;
 	H = window.innerHeight;
-	console.log('RESIZE', c);
 	c.width = W;
 	c.height = H;
 	c.style.width = W;
@@ -37,6 +43,7 @@ function handleResize() {
 }
 
 function handleClick(e) {
+	if (pageName !== '404') return;
 	let x = e.clientX,
 		y = e.clientY;
 	if (!touches.length) {
@@ -124,7 +131,7 @@ class Bubble {
 	reset(o) {
 		this.counter = 0;
 		this.r = Math.random() * 10 + 10;
-		this.x = Math.random() * W;
+		this.x = Math.random() * window.innerWidth;
 		this.xBase = this.x;
 		this.y = H + this.r * 2;
 		this.v = (Math.random() + 0.5) / 10;
@@ -152,7 +159,6 @@ class Particle {
 		this.y = y;
 		this.r = r;
 
-		console.log(this.y);
 		this.col = `rgba(255, 255, 255, 0.2)`;
 		this.remove = false;
 
@@ -181,17 +187,25 @@ class Particle {
 }
 
 function explode(x, y, num = 5) {
-	// sfx.play();
 	while (num--) {
 		particles.push(new Particle(x, y));
 	}
 }
 
 function loadIcons() {
-	let icons = {};
 	document.querySelectorAll('ul.onthewebs li').forEach((el) => {
 		const a = el.querySelector('a')	;
 		const svg = document.querySelector('#svgs .'+el.className).innerHTML;
 		a.innerHTML = svg;
 	});
+}
+
+function addNextBubble() {
+	let rnd = Math.random() * 5000;
+	window.setTimeout(() => {
+		let min = 10;
+		let max = window.innerWidth - 10;
+		bubbles.push(new Bubble());
+		addNextBubble();
+	}, rnd);
 }

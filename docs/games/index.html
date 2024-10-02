@@ -40,9 +40,10 @@ html, body {
 		line-height: 1.75rem;
 		font-family: var(--font-family);
 		color: var(--text-color);
+}
+
+body.page--404 {
     user-select: none;
-/* background: linear-gradient(-45deg,#01010E 25%,#0B0B57 100%); */
-		/* overflow-y: hidden; */
 }
 
 h1, h2 ,h3, h4, h5 {
@@ -81,13 +82,14 @@ h1, h2 ,h3, h4, h5 {
     margin: 0 auto 0.25rem auto;
     text-shadow: 0 5px rgba(0,0,0,0.25);
 }
-.wrap p a { color: #fff; text-decoration: none; border-bottom: 0px dotted white; }
+.wrap p a { color: #fff; text-decoration: none; border-bottom: 1px dotted white; }
 .wrap p a:hover { color: var(--pink); border-bottom: none; }
 
 .page--home .wrap h1,
 .page--404 .wrap h1,
 .page--404 .wrap p,
 .page--home .wrap h2 { text-align: center; }
+
 
 h1 { font-size: 2.5rem; }
 h2 { font-size: 1.5rem; color: var(--green); margin-top: 1rem; }
@@ -159,8 +161,11 @@ img.profile-pic:hover { border-color: var(--green); }
 .bg {
 	position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -10000;
 	background: #036;
-	background: linear-gradient(0deg, #001 20%, #036 75%);
+	background: linear-gradient(0deg, #001 20%, #013 75%);
 	background-attachment: fixed;
+}
+body.page--home .bg {
+	background: linear-gradient(0deg, #001 20%, #036 75%) !important;
 }
 canvas.bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1000; }
 
@@ -195,6 +200,7 @@ p em { text-align: center; }
 }
 .game a { color: #fff;  text-decoration: none; }
 .game a { display: inline; }
+.game p a:after { content: " \00BB"; }
 .game p { margin-top: 0; }
 .game:hover { background: rgba(0,0,0,0.5); border: 1px solid #000; }
 .game:hover a > h3 { color: #f0f; }
@@ -228,7 +234,7 @@ p em { text-align: center; }
 .project:hover h2, .project:hover h3 { color: var(--green); }
 
 ul.tags { width: 100%; list-style: none; margin: 0; padding: 0; }
-ul.tags::before { content: '🛠'; }
+ul.tags::before { content: ''; }
 ul.tags li { font-size: 0.8rem; font-weight: bold; display: inline; padding: 0.4rem; background: rgba(255,255,255,0.05); }
 
 
@@ -671,6 +677,17 @@ footer {
     <div class="bg"></div>
 
 		<script defer src="/js/bubbles.js"></script>
-		<!-- This page `/games/` was built on 2024-10-02T15:38:34.060Z -->
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149691096-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-149691096-1');
+		</script>
+
+		<!-- This page `/games/` was built on 2024-10-02T17:52:00.723Z -->
 	</body>
 </html>
