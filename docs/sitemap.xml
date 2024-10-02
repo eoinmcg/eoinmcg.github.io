@@ -12,11 +12,6 @@
 	</url>
 	
 	<url>
-		<loc>https://eoinmcgrath.com.com/work/</loc>
-		<lastmod>2024-10-02</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://eoinmcgrath.com.com/games/</loc>
 		<lastmod>2024-10-02</lastmod>
 	</url>
@@ -28,6 +23,11 @@
 	
 	<url>
 		<loc>https://eoinmcgrath.com.com/</loc>
+		<lastmod>2024-10-02</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://eoinmcgrath.com.com/work/</loc>
 		<lastmod>2024-10-02</lastmod>
 	</url>
 </urlset>
