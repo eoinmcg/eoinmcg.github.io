@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+
+		<meta name="generator" content="{{ eleventy.generator }}">
+
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+		{#-
+		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
+		1. You can add to them using `{% css %}`
+		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
+		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+		#}
+
+		{#- Add an arbitrary string to the bundle #}
+		{%- css %}* { box-sizing: border-box; }{% endcss %}
+		{#- Add the contents of a file to the bundle #}
+		{%- css %}{% include "public/css/index.css" %}{% endcss %}
+		{#- Or add from node_modules #}
+		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
+
+		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
+		<style>{% getBundle "css" %}</style>
+	</head>
+<body
+  class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+
+		<div class="wrap">
+					{%- if page.fileSlug != "" %}
+					{% include "layouts/nav.njk" %}
+					{%- endif -%}
+
+			{{ content | safe }}
+
+
+			{%- if page.fileSlug != "" %}
+				{% include "layouts/footer.njk" %}
+			{%- endif -%}
+
+		</div>
+
+	{%- if page.fileSlug == "" %}
+		<!-- Adapted from https://masscode.io/snippets/ui/effects/2/ -->
+		<div class="waves-wrap">
+			<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+				<defs>
+					<path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+				</defs>
+				<g class="parallax">
+					<use xlink:href="#wave" x="48" y="5" fill="#258" />
+					<use xlink:href="#wave" x="48" y="1" fill="#026" />
+					<use xlink:href="#wave" x="48" y="0" fill="#036" />
+				</g>
+			</svg>
+		</div>
+	{%- endif -%}
+
+    <div class="light1"></div>
+    <div class="light2"></div>
+    <div class="light3"></div>
+
+    <div class="bg"></div>
+
+		<script defer src="/js/bubbles.js"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149691096-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-149691096-1');
+		</script>
+
+		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+	</body>
+</html>

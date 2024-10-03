@@ -1,0 +1,134 @@
+[
+	{
+		"url": "https://eoinmcgrath.com/gecko",
+		"title": "Gecko Blaster",
+		"icon": "gecko-blaster.png",
+		"desc": "Frantic arcade style action <br /><a href='https://eoinmcgrath.com/gecko/post-mortem'>Post mortem</a>"
+	},
+	{
+		"url": "https://eoinmcgrath.com/mikrobee",
+		"title": "MikroBee",
+		"icon": "mikrobee.png",
+		"desc": "LowRez Jam 2024 edition.<br>64x64 one button shoot 'em up"
+	},
+	{
+		"url": "https://eoinmcgrath.com/hungry-sheep",
+		"title": "Hungry Sheep",
+		"icon": "hungry-sheep.png",
+		"desc": "ReactJam Spring 2024. Honourable mention."
+	},
+	{
+		"url": "https://eoinmcgrath.com/moji-memory",
+		"title": "Moji Memory",
+		"icon": "moji-memory.webp",
+		"desc": "Card matching game built with React"
+	},
+	{
+		"url": "https://eoinmcgrath.com/powersurge",
+		"title": "Powersurge",
+		"icon": "powersurge.png",
+		"desc": "Turn based arcade game. Made with <a href='https://phaser.io' target='blank'>Phaser.js</a> for <a target='blank' href='https://itch.io/jam/gamedevjs-2024/rate/2669735'>Gamedev.js jam</a>"
+	},
+	{
+		"url": "https://eoinmcgrath.com/bewitched",
+		"title": "Bewitched!",
+		"icon": "betwitched128.png",
+		"desc": "Entry for the 2023 js13kgames.com jam<br><a href=\"https://eoinmcgrath.com/pages/postmortem-bewitched.html\">Read post-mortem here</a>            "
+	},
+	{
+		"url": "https://eoinmcgrath.com/guess-the-flag",
+		"title": "Guess the flag",
+		"icon": "guess-the-flag.png",
+		"desc": "              Match the countries to the correct flag.            "
+	},
+	{
+		"url": "https://eoinmcg.itch.io/insecticide",
+		"title": "Insecticide",
+		"icon": "insecticide.png",
+		"desc": "                Mayhem in just 64x64 pixels.<br>Entry for Low Rez game jam            "
+	},
+	{
+		"url": "https://eoinmcgrath.com/enjoythesunshine/",
+		"title": "Enjoy the sunshine",
+		"icon": "offline.png",
+		"desc": "Get offline and enjoy the sunshine<br>Entry for 2018 js13kgames.com jam<br>2nd Place in Mobile category"
+	},
+	{
+		"url": "https://eoinmcg.github.io/bunnylost",
+		"title": "Bunny Lost!",
+		"icon": "lost128.png",
+		"desc": "                Lost. All alone in the deep, dark forest. Can you guide the bunny home safely?<br>Entry for the 2017 js13kgames.com jam <br>2nd Place in Mobile category           "
+	},
+	{
+		"url": "https://eoinmcg.github.io/dayoftheglitch",
+		"title": "Day of the Glitch",
+		"icon": "glitch128.gif",
+		"desc": "                Ha! Ha! The puny humans are doomed!<br>Entry for the 2016 js13kgames.com jam            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/poopy-river",
+		"title": "Poopy River",
+		"icon": "poopy128.png",
+		"desc": "<a href=\"https://eoinmcg.github.io/poopy-river\">                Nice day for a swim... kind of<br>Quickly hacked together for </a><a href=\"\" https:=\"\" itch.io=\"\" jam=\"\" one-button-to-rule-all-jam=\"\">#onebuttonjam</a>            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/whiskey-fever",
+		"title": "Whiskey Fever",
+		"icon": "whiskey128.png",
+		"desc": "                Kaboom! clone but with whiskey.            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/beast-feast",
+		"title": "Beast Feast",
+		"icon": "beast128.png",
+		"desc": "                Local multiplayer carnage with up to 4 players            "
+	},
+	{
+		"url": "http://www.lexaloffle.com/bbs/?tid=3003&autoplay=1#pp",
+		"title": "Piste Off",
+		"icon": "pisteoff128.png",
+		"desc": "<a href=\"http://www.lexaloffle.com/bbs/?tid=3003&amp;autoplay=1#pp\">                Made with </a><a href=\"\">pico8</a>            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/moonshine/",
+		"title": "Escape from Skull Towers",
+		"icon": "moonshine128.png",
+		"desc": "                Collect diamonds, get combos try to escape            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/roboflip/",
+		"title": "RoboFlip",
+		"icon": "roboflip128.png",
+		"desc": "                Entry for 2015 js13kgames.com            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/buzzoff/",
+		"title": "Buzz Off",
+		"icon": "buzzoff128.png",
+		"desc": "                Entry for 2014 js13kgames.com            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/flappysaucer/",
+		"title": "Flappy Saucer",
+		"icon": "flappy128.png",
+		"desc": "<a href=\"https://eoinmcg.github.io/flappysaucer/\">                Flappy Bird clone<br><small></small></a>"
+	},
+	{
+		"url": "https://eoinmcg.github.io/freebird/",
+		"title": "Freebird",
+		"icon": "freebird128.png",
+		"desc": "                Help the birdie escape to freedom!<br>                Avoid the birds, bees and other nasties.            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/mobile_snake/",
+		"title": "Mobile Snake",
+		"icon": "snake128.png",
+		"desc": "<a href=\"https://eoinmcg.github.io/mobile_snake/\"><small></small></a><small><a href=\"http://www.creativebloq.com/html5/create-mobile-version-snake-html5-canvas-and-javascript-11116657\">Tutorial: Originally featured in .NET magazine</a></small>            "
+	},
+	{
+		"url": "https://eoinmcg.github.io/bumblebomber/",
+		"title": "BumbleBomber",
+		"icon": "bumbleicon128.png",
+		"desc": "                Entry for the 2nd hashBBG.com competition                 <br><br>                The challenge was to build a <em>bullet hell shoot 'em up</em> in 12 hours            "
+	}
+]

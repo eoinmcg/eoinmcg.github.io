@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+eleventyNav:
+  key: Games
+  order: 3
+---
+
+<h1>Games</h1>
+
+<p class="intro">
+	In addition to web development I love experimenting with
+	browser based games. It provides a creative outlet and
+	excellent opportunity to hone javascript skills and explore
+	new techniques.
+</p>
+
+{% for game in games %}
+<dv class="game">
+	<div class="icon">
+		<a href="{{ game.url }}">
+			<img src="/icons/{{ game.icon }}" alt="{{ game.title }}" />
+		</a>
+	</div>
+	<div class="desc">
+		<a href="{{ game.url }}">
+			<h3>{{ game.title }}</h3>
+		</a>
+		<p>{{ game.desc | safe }}</p>
+	</div>
+</dv>
+{% endfor %}
