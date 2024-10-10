@@ -3,6 +3,11 @@
   src: url(/css/SpaceMono-Bold.ttf);
 }
 
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url(/css/PressStart2P-Regular.ttf);
+}
+
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
 	--font-headline: Palatino, Baskerville, serif;
@@ -32,6 +37,16 @@ body.page--404 {
 
 h1, h2 ,h3, h4, h5 {
 		font-family: var(--font-family-monospace);
+}
+
+.page--games h1,
+.page--work h1,
+.page--work h2 {
+		font-family: Arial, sans-serif;
+}
+
+.page--games h3 {
+		font: 12px 'Press Start 2P', Arial, sans-serif;
 }
 
 .page--home, .page--404 { align-items: center; }
