@@ -18,7 +18,6 @@
 	--pink: HotPink;
 }
 
-
 html, body {
     margin: 0;
     display: flex;
@@ -210,7 +209,7 @@ p em { text-align: center; }
 .icon img { width: 128px; border-radius: 10px;  }
 
 .desc { flex: 60%; }
-.desc h3 { font-size: 150%; color: #fff; margin-top: 0; }
+.desc h3 { font-size: 120%; color: #fff; margin-top: 0; }
 .desc p {  }
 
 .project {
@@ -346,4 +345,3 @@ ul.onthewebs li svg { width: 42px; }
 	h1 { font-size: 2.3rem; }
 .page--home h2 { font-size: 1.3rem; }
 }
-
