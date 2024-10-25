@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
 	<title>Eoin McGrath - Web Developer</title>
 	<subtitle>Full stack web developer. 20+ years experience. Specializing in Laravel, React, Vue and vanilla javascript.</subtitle>
-	<link href="https://eoinmcgrath.com.com/feed/feed.xml" rel="self"/>
-	<link href="https://eoinmcgrath.com.com/"/>
-	<updated>2024-10-10T19:53:29Z</updated>
+	<link href="https://eoinmcgrath.com.com/blog/feed/feed.xml" rel="self"/>
+	<link href="https://eoinmcgrath.com.com/blog/"/>
+	<updated>2024-10-25T08:24:57Z</updated>
 	<id>https://eoinmcgrath.com.com/</id>
 	<author>
 		<name>Eoin McGrath</name>
