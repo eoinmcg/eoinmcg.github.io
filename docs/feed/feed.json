@@ -2,8 +2,8 @@
 	"version": "https://jsonfeed.org/version/1.1",
 	"title": "Eoin McGrath - Web Developer",
 	"language": "en",
-	"home_page_url": "https://eoinmcgrath.com.com/",
-	"feed_url": "https://eoinmcgrath.com.com/feed/feed.json",
+	"home_page_url": "https://eoinmcgrath.com.com/blog/",
+	"feed_url": "https://eoinmcgrath.com.com/blog/feed/feed.json",
 	"description": "Full stack web developer. 20+ years experience. Specializing in Laravel, React, Vue and vanilla javascript.",
 	"author": {
 		"name": "Eoin McGrath",

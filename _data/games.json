@@ -1,5 +1,12 @@
 [
 	{
+		"url": "https://eoinmcgrath.com/bugandbee",
+		"title": "Bug&Bee",
+		"icon": "bugandbee.png",
+		"desc": "2 player retro shmup <br /><a href='https://itch.io/jam/littlejs-game-jam-2025/results'>🏆 1st Place littlejs jam</a>"
+	},
+
+	{
 		"url": "https://eoinmcgrath.com/gecko",
 		"title": "Gecko Blaster",
 		"icon": "gecko-blaster.png",

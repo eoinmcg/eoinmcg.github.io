@@ -6,14 +6,14 @@
 		<title>Eoin McGrath - Web Developer</title>
 		<meta name="description" content="Full stack web developer. 20+ years experience. Specializing in Laravel, React, Vue and vanilla javascript.">
 
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Eoin McGrath - Web Developer">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Eoin McGrath - Web Developer">
+		<link rel="alternate" href="/blog/feed/feed.xml" type="application/atom+xml" title="Eoin McGrath - Web Developer">
+		<link rel="alternate" href="/blog/feed/feed.json" type="application/json" title="Eoin McGrath - Web Developer">
 
 
-		<meta name="generator" content="Eleventy v2.0.1">
+		<meta name="generator" content="Eleventy v3.1.5">
 
 		
-			<script defer src="https://cloud.umami.is/script.js" data-website-id="6a7a59ee-cea7-4517-8aac-1aa3347fb5da"></script>
+			<script defer="" src="https://cloud.umami.is/script.js" data-website-id="6a7a59ee-cea7-4517-8aac-1aa3347fb5da"></script>
 		
 
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
@@ -120,6 +120,8 @@ nav a { text-decoration: none; color: #fff; padding: 0.5rem; opacity: 0.5; borde
 nav a:hover { opacity: 0.75; }
 nav a.active { opacity: 1; border-color: #fff; }
 
+.hidden { display: none; }
+
 ul.onthewebs { list-style: none; padding: .75rem 0; }
 ul.onthewebs li { display: inline; padding: .5rem; }
 ul.onthewebs a { display: inline; color: #fff; text-decoration: none; }
@@ -128,8 +130,10 @@ ul.onthewebs svg > g { fill: white; transition: all 0.2s linear; }
 ul.onthewebs svg:hover > g { fill: var(--pink); }
 ul.onthewebs li.email svg { padding-top: 5px;}
 
-img.profile-pic { max-width: 128px; border-radius: 100%; border: 3px solid rgba(255, 255, 255, 0.5); margin: auto; }
-img.profile-pic:hover { border-color: var(--green); }
+img.profile-pic { max-width: 128px; border-radius: 100%; border: 3px solid rgba(255, 255, 255, 0.5); margin: auto;
+	transition: all .2s ease-in;
+}
+img.profile-pic:hover { border-color: var(--green); transform: scale(1.05); }
 
 .card {
   width: 128px;
@@ -137,6 +141,16 @@ img.profile-pic:hover { border-color: var(--green); }
   perspective: 500px;
 	display: block;
 	margin: 0 auto;
+}
+
+.card.hire-me a { text-decoration: none; }
+.card.hire-me a strong {
+	color: #fff;
+	text-decoration: none;
+	font-weight: normal;
+	width: 100%;
+	font-size: 90%;
+
 }
 
 .content {
@@ -152,6 +166,13 @@ img.profile-pic:hover { border-color: var(--green); }
   transition: transform 0.5s;
 }
 
+img.profile-pic {
+	color: #fff;
+	text-align: center;
+	border-radius: 100rem;
+	border: 5px solid #fff;
+}
+
 .front,
 .back {
   position: absolute;
@@ -161,23 +182,54 @@ img.profile-pic:hover { border-color: var(--green); }
   background-image: url('/i/profile.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
-  line-height: 90px;
   color: #03446A;
   text-align: center;
-  font-size: 20px;
+  font-size: 14px;
   border-radius: 5px;
   backface-visibility: hidden;
   border-radius: 100rem;
 }
 
 .back {
-  /* border-color: red; */
   background: var(--green);
   color: white;
   transform: rotateY( 180deg );
 }
 .back a { text-decoration: none; color: #000; font-family: var(--font-family-monospace); }
 
+span.lets-build {
+	display: block;
+	margin: 20px auto;
+	width: 50%;
+	line-height: 20px;
+	text-align: left;
+}
+
+.cta-banner {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	padding: .25rem 0;
+	font-size: 90%;
+	text-align: center;
+	background: var(--green);
+	font-family: var(--font-family-monospace);
+	opacity: 60%;
+	border-top: 1px solid #000;
+	transition: all 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.cta-banner:hover {
+	opacity: 100%;
+}
+
+.cta-banner a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	color: black;
+}
 
 .bg {
 	position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -10000;
@@ -369,16 +421,15 @@ ul.onthewebs li svg { width: 42px; }
 .page--home h2 { font-size: 1.3rem; }
 }</style>
 	</head>
-<body
-  class="page--work">
+<body class="page--work">
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 
 		<div class="wrap">
 					<nav>
-	<a class="active" href="/work">Work</a>
-	<a class="" href="/games">Games</a>
-	<a href="/">Contact</a>
+	<a class="active" href="/blog/work">Work</a>
+	<a class="" href="/blog/games">Games</a>
+	<a href="/blog/">Contact</a>
 </nav>
 
 <h1>Work</h1>
@@ -393,7 +444,7 @@ ul.onthewebs li svg { width: 42px; }
 
 <div class="project" id="lead-magnet-editor">
 	<h2>Lead Magnet / PDF editor</h2>
-		<img width="300" src="/i/beacon-edv4.webp" alt="Lead Magnet editor" />
+		<img width="300" src="/blog/i/beacon-edv4.webp" alt="Lead Magnet editor">
 	<div class="desc">
 		<p>Drag and drop editor with a focus on ease of use.</p>
 		<p>Approx 50,000 users produced over 200,000 documents with this tool.</p>
@@ -423,7 +474,7 @@ ul.onthewebs li svg { width: 42px; }
 
 <div class="project" id="beacon-dashboard">
 	<h3>Beacon.by user dashboard</h3>
-	<img width="300" src="/i/beacon-dashboard.webp" alt="User Dashboard" />
+	<img width="300" src="/blog/i/beacon-dashboard.webp" alt="User Dashboard">
 		<p>
 			Driven by need to refresh legacy dashboard,
 			adding more interactivity and faster loading times.
@@ -474,7 +525,7 @@ ul.onthewebs li svg { width: 42px; }
 
 <div class="project" id="browser-games">
 	<h3>Browser based games</h3>
-	<img width="300" src="/i/hungry-sheep-splash.webp" alt="Splash screen for web game, Hungry Sheep">
+	<img width="300" src="/blog/i/hungry-sheep-splash.webp" alt="Splash screen for web game, Hungry Sheep">
 	<p>Hungry sheep - honorable mention React Jam Spring 2024</p>
 	<p>
 		I love to indulge my creative urges and create
@@ -493,7 +544,7 @@ ul.onthewebs li svg { width: 42px; }
 
 <div class="project" id="devto-challenge">
 	<h3>Dev.to Challenge</h3>
-	<img width="300" src="/i/mountains.webp" alt="Splash screen for web game, Hungry Sheep">
+	<img width="300" src="/blog/i/mountains.webp" alt="Splash screen for web game, Hungry Sheep">
 	<p>
 		Time for something a little more creative.
 		Spent an afternoon deep diving into CSS animations.<br>
@@ -516,8 +567,8 @@ ul.onthewebs li svg { width: 42px; }
 
     <div class="bg"></div>
 
-		<script defer src="/js/bubbles.js"></script>
+		<script defer="" src="/blog/js/bubbles.js"></script>
 
-		<!-- This page `/work/` was built on 2025-03-03T11:31:50.057Z -->
+		<!-- This page `/blog/work/` was built on 2026-04-28T12:25:49.739Z -->
 	</body>
 </html>
