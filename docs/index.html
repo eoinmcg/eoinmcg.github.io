@@ -213,11 +213,15 @@ span.lets-build {
 	font-family: var(--font-family-monospace);
 	opacity: 60%;
 	border-top: 1px solid #000;
-	transition: all 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+	transform: translateY(100%);
+	opacity: 0.7;
+	transition: all .3s ease-in;
+	animation: slideUp 0.8s ease forwards;
+	animation-delay: 3s;
 }
 
 .cta-banner:hover {
-	opacity: 100%;
+	opacity: 1;
 }
 
 .cta-banner a {
@@ -386,6 +390,31 @@ footer {
   100% {
     transform: translate3d(85px,0,0);
   }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(100%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
 }
 /* Shrinking for mobile */
 @media (max-width: 768px) {
