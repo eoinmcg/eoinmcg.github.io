@@ -31,7 +31,7 @@
 		if (pageName === 'home') {
 			window.setTimeout(() => {
 				activate();
-			}, 10000);
+			}, 7000);
 
 		}
 	});
