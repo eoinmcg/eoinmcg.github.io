@@ -26,8 +26,13 @@
 		handleResize();
 
 		if (pageName === '404') {
-			scheduleNextBubble();
-			startLoop();
+			activate();
+		}
+		if (pageName === 'home') {
+			window.setTimeout(() => {
+				activate();
+			}, 10000);
+
 		}
 	});
 
@@ -59,14 +64,19 @@
 	}
 
 	function handlePointer(e) {
-		if (pageName !== '404') return;
+		if (!animating) return;
 		touches.push(new Touch({ x: e.clientX, y: e.clientY }));
+	}
+
+
+	function activate() {
+		scheduleNextBubble();
+		startLoop();
 	}
 
 	function normalise(dt) {
 		return dt / TARGET_DT;
 	}
-
 
 	const Draw = {
 		circle(x, y, r, col, strokeCol = null, strokeWidth = 3) {
@@ -133,7 +143,6 @@
 		return dx * dx + dy * dy < (a.r + b.r) * (a.r + b.r);
 	}
 
-	// input
 	class Touch {
 		constructor({ x, y }) {
 			this.x = x;
@@ -232,4 +241,5 @@
 			scheduleNextBubble();
 		}, delay);
 	}
+
 })();
