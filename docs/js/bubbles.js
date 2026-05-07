@@ -1,211 +1,235 @@
-let c,
-	ctx,
-	W,
-	H,
-	bubbles = [],
-	maxBubbles = 20,
-	mpos = { x: 0, y: 0 },
-	touches = [],
-	particles = [];
-let now = 0,
-	prev = 0,
-	dt = 0;
-let pageName = '';
+(() => {
+	// state
+	let c, ctx, W, H;
+	let bubbles = [];
+	let touches = [];
+	let particles = [];
 
-document.addEventListener("DOMContentLoaded", () => {
-	pageClass = document.body.classList.forEach((c) => {
-		if (c.indexOf('page--') != -1) {
-			pageName = c.split('--').pop();
+	const MAX_BUBBLES = 20;
+	const TARGET_DT = 16.67; // baseline: 60fps frame in ms
+
+	let now = 0;
+	let prev = 0;
+	let dt = 0;
+	let pageName = '';
+	let animating = false;
+
+	// init
+	document.addEventListener('DOMContentLoaded', () => {
+		pageName = getPageName();
+
+		c = document.createElement('canvas');
+		c.classList.add('bg-canvas');
+		ctx = c.getContext('2d');
+		document.body.appendChild(c);
+
+		handleResize();
+
+		if (pageName === '404') {
+			scheduleNextBubble();
+			startLoop();
 		}
 	});
-	c = document.createElement("canvas");
-	c.classList.add("bg-canvas");
-	ctx = c.getContext("2d");
-	document.body.appendChild(c);
-	handleResize();
-	if (pageName === '404') {
-		addNextBubble();
-		loop();
-	}
-	loadIcons();
-});
 
-window.addEventListener("resize", handleResize, false);
-window.addEventListener("mousedown", handleClick, false);
+	window.addEventListener('resize', handleResize, false);
+	window.addEventListener('mousedown', handlePointer, false);
+	window.addEventListener('touchstart', (e) => {
+		const t = e.touches[0];
+		handlePointer({ clientX: t.clientX, clientY: t.clientY });
+	}, { passive: true });
 
-function handleResize() {
-	W = window.innerWidth;
-	H = window.innerHeight;
-	c.width = W;
-	c.height = H;
-	c.style.width = W;
-	c.style.height = H;
-}
-
-function handleClick(e) {
-	if (pageName !== '404') return;
-	let x = e.clientX,
-		y = e.clientY;
-	if (!touches.length) {
-		touches.push(new Touch({ x, y }));
-	}
-}
-
-const Draw = {
-	circle(x, y, r, col, strokeCol = false, strokeWidth = 3) {
-		ctx.beginPath();
-		ctx.arc(~~x, ~~y, ~~r, 0, 2 * Math.PI, false);
-		ctx.fillStyle = col;
-		ctx.fill();
-		if (strokeCol) {
-			ctx.lineWidth = strokeWidth;
-			ctx.strokeStyle = strokeCol;
-			ctx.stroke();
-		}
-	},
-	clear() {
-		if (!ctx) return;
-		ctx.clearRect(0, 0, W, H);
-	},
-};
-
-const loop = () => {
-	now = window.performance.now();
-	dt = now - prev;
-	Draw.clear();
-	bubbles.forEach((bubble) => {
-		bubble.update(dt);
-		touches.forEach((t) => {
-			if (collides(t, bubble)) {
-				t.hit = true;
-				explode(bubble.x, bubble.y);
-				bubble.reset();
+	// helpers
+	function getPageName() {
+		let name = '';
+		document.body.classList.forEach((cls) => {
+			if (cls.startsWith('page--')) {
+				name = cls.slice('page--'.length);
 			}
 		});
-	});
-	touches.forEach((touch, i) => {
-		touch.update(dt);
-		if (touch.ttl < 0) {
-			touches.splice(i, 1);
+		return name;
+	}
+
+	function handleResize() {
+		W = window.innerWidth;
+		H = window.innerHeight;
+		c.width = W;
+		c.height = H;
+		c.style.width = W + 'px';
+		c.style.height = H + 'px';
+	}
+
+	function handlePointer(e) {
+		if (pageName !== '404') return;
+		touches.push(new Touch({ x: e.clientX, y: e.clientY }));
+	}
+
+	function normalise(dt) {
+		return dt / TARGET_DT;
+	}
+
+
+	const Draw = {
+		circle(x, y, r, col, strokeCol = null, strokeWidth = 3) {
+			ctx.beginPath();
+			ctx.arc(~~x, ~~y, ~~r, 0, 2 * Math.PI, false);
+			ctx.fillStyle = col;
+			ctx.fill();
+			if (strokeCol) {
+				ctx.lineWidth = strokeWidth;
+				ctx.strokeStyle = strokeCol;
+				ctx.stroke();
+			}
+		},
+		clear() {
+			ctx.clearRect(0, 0, W, H);
+		},
+	};
+
+	// main loop
+	function startLoop() {
+		if (animating) return;
+		animating = true;
+		prev = window.performance.now();
+		window.requestAnimationFrame(loop);
+	}
+
+	function loop(timestamp) {
+		now = timestamp;
+		dt = now - prev;
+
+		// Guard against huge dt spikes (tab blur, etc.)
+		const safeDt = Math.min(dt, 100);
+
+		Draw.clear();
+
+		for (const bubble of bubbles) {
+			bubble.update(safeDt);
+			for (const touch of touches) {
+				if (collides(touch, bubble)) {
+					touch.hit = true;
+					explode(bubble.x, bubble.y);
+					bubble.reset();
+				}
+			}
 		}
-	});
-	particles.forEach((p, i) => {
-		p.update(dt);
-		if (p.remove) {
-			particles.splice(i, 1);
+
+		touches = touches.filter((touch) => {
+			touch.update(safeDt);
+			return touch.ttl > 0;
+		});
+
+		particles = particles.filter((p) => {
+			p.update(safeDt);
+			return !p.remove;
+		});
+
+		prev = now;
+		window.requestAnimationFrame(loop);
+	}
+
+	function collides(a, b) {
+		const dx = a.x - b.x;
+		const dy = a.y - b.y;
+		return dx * dx + dy * dy < (a.r + b.r) * (a.r + b.r);
+	}
+
+	// input
+	class Touch {
+		constructor({ x, y }) {
+			this.x = x;
+			this.y = y;
+			this.r = 10;
+			this.hit = false;
+			this.ttl = 1000;
 		}
-	});
-	prev = now;
-	window.requestAnimationFrame(loop);
-};
 
-function collides(a, b) {
-	const dSq = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
-
-	const rSq = (a.r + b.r) * (a.r + b.r);
-
-	return dSq < rSq;
-}
-
-class Touch {
-	constructor(o) {
-		this.x = o.x;
-		this.y = o.y;
-		this.r = 10;
-		this.hit = false;
-		this.ttl = 1000;
-	}
-
-	update(dt) {
-		this.ttl -= dt * 2.5;
-		let col = `rgba(200, 0, 0, ${this.ttl / 1000})`;
-		Draw.circle(this.x, this.y, this.r, col);
-	}
-}
-
-class Bubble {
-	constructor(o) {
-		this.reset(o);
-	}
-
-	reset(o) {
-		this.counter = 0;
-		this.r = Math.random() * 10 + 10;
-		this.x = Math.random() * window.innerWidth;
-		this.xBase = this.x;
-		this.y = H + this.r * 2;
-		this.v = (Math.random() + 0.5) / 10;
-		this.col = "rgba(255, 255, 255, 0.15)";
-		this.strokeCol = "rgba(255, 255, 255, 0.2)";
-	}
-
-	update(dt) {
-		this.counter += dt * 0.002;
-		if (this.y < -this.r * 2) this.reset();
-		const opacity = ~~((this.y / H) * 100) / 100;
-
-		this.y -= this.v * dt;
-		this.x = this.r * 1.7 * Math.sin(this.counter) + this.xBase;
-
-		const col = `rgba(255, 255, 255, ${opacity / 24})`;
-		const strokeCol = `rgba(255, 255, 255, ${opacity / 16})`;
-		Draw.circle(this.x, this.y, this.r, col, strokeCol);
-	}
-}
-
-class Particle {
-	constructor(x, y, r = 3) {
-		this.x = x;
-		this.y = y;
-		this.r = r;
-
-		this.col = `rgba(255, 255, 255, 0.2)`;
-		this.remove = false;
-
-		this.dir = ~~(Math.random() * 2);
-		this.dir = this.dir ? 1 : -1;
-
-		this.vx = ~~(Math.random() * 4) * this.dir;
-		this.vy = ~~(Math.random() * 7) * 1;
-	}
-
-	update(dt) {
-		this.x += this.vx;
-		this.y += this.vy;
-
-		this.vx *= 0.99;
-		this.vy *= 0.99;
-
-		this.vy -= 0.25;
-
-		Draw.circle(this.x, this.y, this.r, this.col);
-
-		if (this.y < 0) {
-			this.remove = true;
+		update(dt) {
+			this.ttl -= dt * 2.5;
+			const alpha = Math.max(0, this.ttl / 1000);
+			const r = this.r * alpha; // shrink as it fades
+			Draw.circle(this.x, this.y, r, `rgba(200, 0, 0, ${alpha})`);
 		}
 	}
-}
 
-function explode(x, y, num = 5) {
-	while (num--) {
-		particles.push(new Particle(x, y));
+	class Bubble {
+		constructor() {
+			this.counter = 0;
+			this.reset();
+		}
+
+		reset() {
+			this.counter = 0;
+			this.r = Math.random() * 10 + 10;
+			this.x = Math.random() * W;
+			this.xBase = this.x;
+			this.y = H + this.r * 2;
+			this.v = (Math.random() + 0.5) / 10;
+		}
+
+		update(dt) {
+			const n = normalise(dt);
+			this.counter += dt * 0.002;
+
+			if (this.y < -this.r * 2) {
+				this.reset();
+				return;
+			}
+
+			this.y -= this.v * dt * n;
+			this.x = this.r * 1.7 * Math.sin(this.counter) + this.xBase;
+
+			const opacity = Math.max(0, Math.min(1, this.y / H));
+			Draw.circle(
+				this.x,
+				this.y,
+				this.r,
+				`rgba(255, 255, 255, ${opacity / 24})`,
+				`rgba(255, 255, 255, ${opacity / 16})`
+			);
+		}
 	}
-}
 
-function loadIcons() {
-	document.querySelectorAll('ul.onthewebs li').forEach((el) => {
-		const a = el.querySelector('a')	;
-		const svg = document.querySelector('#svgs .'+el.className).innerHTML;
-		a.innerHTML = svg;
-	});
-}
+	class Particle {
+		constructor(x, y, r = 3) {
+			this.x = x;
+			this.y = y;
+			this.r = r;
+			this.remove = false;
 
-function addNextBubble() {
-	let rnd = Math.random() * 5000;
-	window.setTimeout(() => {
-		let min = 10;
-		let max = window.innerWidth - 10;
-		bubbles.push(new Bubble());
-		addNextBubble();
-	}, rnd);
-}
+			const dir = Math.random() < 0.5 ? 1 : -1;
+			this.vx = ~~(Math.random() * 4) * dir;
+			this.vy = ~~(Math.random() * 7);
+		}
+
+		update(dt) {
+			const n = normalise(dt);
+			this.x += this.vx * n;
+			this.y += this.vy * n;
+
+			this.vx *= Math.pow(0.99, n);
+			this.vy *= Math.pow(0.99, n);
+			this.vy -= 0.25 * n;
+
+			Draw.circle(this.x, this.y, this.r, 'rgba(255, 255, 255, 0.2)');
+
+			if (this.y < 0) this.remove = true;
+		}
+	}
+
+	// factories
+	function explode(x, y, num = 5) {
+		for (let i = 0; i < num; i++) {
+			particles.push(new Particle(x, y));
+		}
+	}
+
+	function scheduleNextBubble() {
+		const delay = Math.random() * 5000;
+		window.setTimeout(() => {
+			if (bubbles.length < MAX_BUBBLES) {
+				bubbles.push(new Bubble());
+			}
+			scheduleNextBubble();
+		}, delay);
+	}
+})();
