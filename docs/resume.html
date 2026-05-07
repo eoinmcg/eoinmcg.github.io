@@ -1,273 +1,267 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eoin McGrath, Developer and Founder - Resume</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    >
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <style>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eoin McGrath, Developer and Founder - Resume</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+		>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+		<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+		<style>
 
-      @font-face {
-        font-family: space-mono;
-        src: url(SpaceMono-Bold.ttf);
-      }
+		@font-face {
+			font-family: space-mono;
+			src: url('css/SpaceMono-Bold.ttf');
+		}
 
-      body { font-size: 15px; }
-      h1, h2, h3 { font-family: space-mono, monospace; }
-      h1 { margin: 0; font-size: 1.2rem; }
-      h1 small { font-size: 1.1rem; color: #666; }
-      h3 small { color: #999; font-size: 80%; }
-      h2 { font-size: 1.2rem; }
-      h3 { font-size: 1rem; font-weight: normal; color: #666; }
-      h4 { margin: 0; font-size: 1rem; }
-      h4 em { font-style: normal; font-size: 90%; }
-      strong { color: #888; font-size: .8rem; }
-      strong.date { position: relative; padding-left: 20px; }
-      strong.date i.fi { position: absolute; top: 0px; left: 0px; opacity: 0.75; }
+		body { font-size: 15px; }
+		h1, h2, h3 { font-family: space-mono, monospace; }
+		h1 { margin: 0; font-size: 1.2rem; }
+		h1 small { font-size: 1.1rem; color: #666; }
+		h3 small { color: #999; font-size: 80%; }
+		h2 { font-size: 1.2rem; }
+		h3 { font-size: 1rem; font-weight: normal; color: #666; }
+		h4 { margin: 0; font-size: 1rem; }
+		h4 em { font-style: normal; font-size: 90%; }
+		strong { color: #888; font-size: .8rem; }
+		strong.date { position: relative; padding-left: 20px; }
+		strong.date i.fi { position: absolute; top: 0px; left: 0px; opacity: 0.75; }
 
-      a img { border: 3px solid #333; border-radius: 100%; }
+		a img { border: 3px solid #333; border-radius: 100%; }
 
-      p.tagline { font-size: 80%; font-weight: bold; font-family: space-mono, monospace; color: #999; text-transform: lowercase;}
-      ul.contact  { display: flex; padding: 0; margin: .5rem 0 0; }
-      ul.contact li { list-style: none; width: 32%; position: relative; font-size: .75rem; }
-      ul.contact li a { padding-left: 20px; text-decoration: none; font-weight: bold; }
+		p.tagline { font-size: 80%; font-weight: bold; font-family: space-mono, monospace; color: #999; text-transform: lowercase;}
+		ul.contact  { display: flex; padding: 0; margin: .5rem 0 0; }
+		ul.contact li { list-style: none; width: 32%; position: relative; font-size: .75rem; }
+		ul.contact li a { padding-left: 20px; text-decoration: none; font-weight: bold; }
 
-      ul.contact i.fi { position: absolute; top: 2px; left: 2px; }
+		ul.contact i.fi { position: absolute; top: 2px; left: 2px; }
 
-      .left h3 { margin: 0 0 10px 0; padding: 0; }
-      .icon { font-size: 250%; opacity: 0.1; margin-left: 1rem; margin-top: 1.1rem; }
+		.left h3 { margin: 0 0 10px 0; padding: 0; }
+		.icon { font-size: 250%; opacity: 0.1; margin-left: 1rem; margin-top: 1.1rem; }
 
-      body { background: #222; }
-      .container { background: #fff; max-width: 1024px; }
+		body { background: #222; }
+		.container { background: #fff; max-width: 1024px; }
 
-      .grid {
-        display: grid;
-        grid-template-columns: 15% 80%;
-      }
+		.grid {
+			display: grid;
+			grid-template-columns: 15% 80%;
+		}
 
-      /* header { padding-top: 2rem; } */
-      header p { font-size: 1rem; margin-top: .5rem; }
-      article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.7rem 0; }
-      article:last-child { border-bottom: none; }
-      section { margin-top: 1.1rem; margin-bottom: 2rem; }
-      section:first-child { margin-top: 0; }
+		header p { font-size: 1rem; margin-top: .5rem; }
+		article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.7rem 0; }
+		article:last-child { border-bottom: none; }
+		section { margin-top: 1.1rem; margin-bottom: 2rem; }
+		section:first-child { margin-top: 0; }
 
-      #skills ul  { columns: 6; }
-      #skills ul li  {  list-style: none; }
-      ul { padding-left: 1rem; }
-      ul li a { text-decoration: none; }
-      /* li { font-size: .75rem; } */
+		#skills ul  { columns: 6; }
+		#skills ul li  {  list-style: none; }
+		ul { padding-left: 1rem; }
+		ul li a { text-decoration: none; }
 
 
-@media print {
-  @page{
-    size: A4;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  body { background: #fff; }
-  /* section { */
-  /*   break-inside: avoid; */
-  /* } */
-}
+		@media print {
+			@page{
+				size: A4;
+				margin-top: 50px;
+				margin-bottom: 50px;
+			}
+			body { background: #fff; }
+		}
 
-    </style>
-  </head>
-  <body>
+		</style>
+	</head>
+	<body>
 
-    <div class="container">
-      <header class="grid">
-      <div class="left">
-          <a href="https://eoinmcgrath.com">
-            <img src="i/profile.jpeg" alt="Photo of Eoin McGrath">
-          </a>
-      </div>
-        <div class="main">
-      <h1>Eoin McGrath
-      <small>Developer & Founder</small></h1>
-          <p class="tagline">Available for contract work mid-June 2026</p>
-          <ul class="contact">
-           <li class="email"><a href="mailto:hi@eoinmcgrath.com">
-                <i class="fi fi-br-envelope"></i>
-                hi@eoinmcgrath.com
-              </a></li>
-           <li class="linkedin"><a href="https://www.linkedin.com/in/eoinmcg/">
-                <i class="fi fi-brands-linkedin"></i>
-                linkedin.com/in/eoinmcg
-            </a></li>
-           <li class="github"><a href="https://github.com/eoinmcg">
-                <i class="fi fi-brands-github"></i>
-                github.com/eoinmcg
-              </a></li>
-          </ul>
-          <div class="summary">
-            <p>
-Co-founded, scaled, and sold a profitable SaaS business (Beacon.by) - serving 70,000+ users and 200,000+ generated documents.
-            </p>
-            <p>
-Brings rare founder-level perspective to engineering: architecting systems, optimising infrastructure costs, and building products that users actually keep using.
-            </p>
-            <p>
-Equally comfortable deep in a backend or crafting polished interfaces.
-            </p>
-          </div>
-        </div>
-      </header>
+		<div class="container">
+			<header class="grid">
+				<div class="left">
+					<a href="https://eoinmcgrath.com">
+						<img src="i/profile.jpeg" alt="Photo of Eoin McGrath">
+					</a>
+				</div>
+				<div class="main">
+					<h1>Eoin McGrath
+						<small>Developer & Founder</small></h1>
+					<p class="tagline">Available for contract work mid-June 2026</p>
+					<ul class="contact">
+						<li class="email"><a href="mailto:hi@eoinmcgrath.com">
+							<i class="fi fi-br-envelope"></i>
+							hi@eoinmcgrath.com
+						</a></li>
+						<li class="linkedin"><a href="https://www.linkedin.com/in/eoinmcg/">
+							<i class="fi fi-brands-linkedin"></i>
+							linkedin.com/in/eoinmcg
+						</a></li>
+						<li class="github"><a href="https://github.com/eoinmcg">
+							<i class="fi fi-brands-github"></i>
+							github.com/eoinmcg
+						</a></li>
+					</ul>
+					<div class="summary">
+						<p>
+							Co-founded, scaled, and sold a profitable SaaS business (Beacon.by) - serving 70,000+ users and 200,000+ generated documents.
+						</p>
+						<p>
+							Brings rare founder-level perspective to engineering: architecting systems, optimising infrastructure costs, and building products that users actually keep using.
+						</p>
+						<p>
+							Equally comfortable deep in a backend or crafting polished interfaces.
+						</p>
+					</div>
+				</div>
+			</header>
 
 
 
-      <article class="grid" id="skills">
-        <div class="left">
-          <h3>Skills</h3>
-          <i class="fi fi-br-user-skill-gear icon"></i>
-        </div>
+			<article class="grid" id="skills">
+				<div class="left">
+					<h3>Skills</h3>
+					<i class="fi fi-br-user-skill-gear icon"></i>
+				</div>
 
-        <div class="main">
-          <ul>
-            <li>Javascript</li>
-            <li>Node</li>
-            <li>Linux</li>
-            <li>Git</li>
-            <li>RDBMS</li>
-            <li>Laravel</li>
-            <li>HTML5</li>
-            <li>CSS</li>
-            <li>React</li>
-            <li>Express</li>
-            <li>Typescript</li>
-            <li>Writing</li>
-          </ul>
-        </div>
-      </article>
+				<div class="main">
+					<ul>
+						<li>Javascript</li>
+						<li>Node</li>
+						<li>Linux</li>
+						<li>Git</li>
+						<li>RDBMS</li>
+						<li>Laravel</li>
+						<li>HTML5</li>
+						<li>CSS</li>
+						<li>React</li>
+						<li>Nuxt</li>
+						<li>Typescript</li>
+						<li>Writing</li>
+					</ul>
+				</div>
+			</article>
 
-
-      <article class="grid">
-
-
-        <div class="left">
-          <h3>Recent Activity
-            <small>
-            2024-2026
-            </small>
-          </h3>
-          <i class="fi fi-br-flask-potion icon"></i>
-        </div>
-
-        <div class="main">
-<section>
-<h4 style="margin-bottom: .25rem;">
-              Available for contract work.
-              <br />
-Staying sharp through competitions, open source, and published writing.
-            </h4>
-<ul>
-<li>LittleJS Jam: <a href="https://itch.io/jam/littlejs-game-jam-2025/rate/4028953">First place</a>. I have also contributed to the LittleJS framework</li>
-<li>Dev.to challenge: <a href="https://dev.to/eoinmcg/frontend-challenge-world-asteroid-day-30th-june-l7c">First place</a>, build with React, typescript and R3F.</li>
-<li>AI Course: <a href="https://academy.towardsai.net/certificates/7pp93ui82j">Certificate</a></li>
-<li>Article: Vanilla JS game: <a href="https://www.sitepoint.com/author/emcgrath/">Published on SitePoint</a> </li>
-<li>Tutorial: Make a mobile first JS game: <a href="https://eoinmcgrath.com/little-ski/tutorial.html">View</a> </li>
-<li>Course on Web Accessibility: <a href="https://courses.edx.org/certificates/1cc304108e1c4a2aaacc51ab6f7a4c27?_gl=1*skpyr0*_gcl_au*OTc2NTMzOTEzLjE3MzE0OTA4MjM.*_ga*MTE5ODk0MTAwLjE3MzE0OTA4MjQ.*_ga_D3KS4KMDT0*MTczNjk0MDQyMy4zNi4xLjE3MzY5NDA0NDcuMzYuMC4w">Certificate</a></li>
-</ul>
-</section>
-          </div>
-
-        <div class="left">
-          <h3>Experience</h3>
-          <!-- <i class="fi fi-br-flask-potion icon"></i> -->
-          <i class="fi fi-br-briefcase icon"></i>
-        </div>
-
-        <div class="main">
-
-<section>
-<h4>Beacon.by, <em>CTO and co-founder</em></h4>
-<strong class="date">
-<i class="fi fi-br-calendar-day"></i>
-2013 - 2024</strong>
-<p style="margin-top: .5rem;">
-  Co-founded a bootstrapped SaaS platform, grew it to 70,000+ users, and sold the business in early 2024.
-</p>
-<ul>
-  <li>
-    <b>200,000+ documents created.</b> Built a drag-and-drop Lead Magnet editor in React, publishable to both web and PDF.
-  </li>
-  <li>
-    Engineered a full landing page builder and resource library with React.
-  </li>
-  <li>
-    Architected and maintained the entire Laravel / MySQL backend through the full growth lifecycle.
-  </li>
-  <li>
-    <b>Cost impact:</b> Reduced monthly infrastructure costs by 40% by replacing a third-party SSL service with an in-house provisioning system for tens of thousands of custom-domain certs.
-  </li>
-  <li>
-    Owned technical support and all developer-facing documentation.
-  </li>
-</ul>
-</section>
-
-<section>
-<h4>Starfish Web Consulting, <em>CTO and co-founder</em></h4>
-<strong class="date">
-<i class="fi fi-br-calendar-day"></i>
-2005 - 2013</strong>
-<ul>
-  <li>
-    Built an in-house CMS with a focus on security and WCAG accessibility standards.
-  </li>
-  <li>
-    Delivered bespoke web solutions for businesses, government agencies, and NGOs.
-  </li>
-</ul>
-</section>
-
-<section>
-<h4>Bluelink.net, <em>Web developer</em></h4>
-<strong class="date">
-<i class="fi fi-br-calendar-day"></i>
-2003 - 2004</strong>
-<ul>
-<li>
-Administered and redesigned Bluelink's web portal; led migration to web standards.
-</li>
-</ul>
-</section>
+			<article class="grid">
 
 
-<section>
-<h4>Oceanfree.net, <em>Technology Analyst</em></h4>
-<strong class="date">
-<i class="fi fi-br-calendar-day"></i>
-  2000 - 2001</strong>
-<ul>
-<li>
-Delivered dynamic news and weather feeds to Ireland's first free ISP.
-</li>
-</ul>
-</section>
+				<div class="left">
+					<h3>Recent Activity
+						<small>
+							2024-2026
+						</small>
+					</h3>
+					<i class="fi fi-br-flask-potion icon"></i>
+				</div>
 
-        </div>
-      </article>
+				<div class="main">
+					<section>
+						<h4 style="margin-bottom: .25rem;">
+							Available for contract work.
+							<br />
+							Staying sharp through competitions, open source, and published writing.
+						</h4>
+						<ul>
+							<li>LittleJS Jam: <a href="https://itch.io/jam/littlejs-game-jam-2025/rate/4028953">First place</a>. I have also contributed to the LittleJS framework</li>
+							<li>Dev.to challenge: <a href="https://dev.to/eoinmcg/frontend-challenge-world-asteroid-day-30th-june-l7c">First place</a>, build with React, typescript and R3F.</li>
+							<li>AI Course: <a href="https://academy.towardsai.net/certificates/7pp93ui82j">Certificate</a></li>
+							<li>Article: Vanilla JS game: <a href="https://www.sitepoint.com/author/emcgrath/">Published on SitePoint</a> </li>
+							<li>Tutorial: Make a mobile first JS game: <a href="https://eoinmcgrath.com/little-ski/tutorial.html">View</a> </li>
+							<li>Course on Web Accessibility: <a href="https://courses.edx.org/certificates/1cc304108e1c4a2aaacc51ab6f7a4c27?_gl=1*skpyr0*_gcl_au*OTc2NTMzOTEzLjE3MzE0OTA4MjM.*_ga*MTE5ODk0MTAwLjE3MzE0OTA4MjQ.*_ga_D3KS4KMDT0*MTczNjk0MDQyMy4zNi4xLjE3MzY5NDA0NDcuMzYuMC4w">Certificate</a></li>
+						</ul>
+					</section>
+				</div>
 
-      <article class="grid">
-        <div class="left">
-          <h3>Education</h3>
-          <i class="fi fi-br-graduation-cap icon"></i>
-        </div>
+				<div class="left">
+					<h3>Experience</h3>
+					<!-- <i class="fi fi-br-flask-potion icon"></i> -->
+					<i class="fi fi-br-briefcase icon"></i>
+				</div>
 
-        <div class="main">
-          <h4>Information Management (Bsc) 2.1</h4>
-          <strong>Queens University Belfast</strong>
-        </div>
-      </article>
+				<div class="main">
 
-    </div>
+					<section>
+						<h4>Beacon.by, <em>CTO and co-founder</em></h4>
+						<strong class="date">
+							<i class="fi fi-br-calendar-day"></i>
+							2013 - 2024</strong>
+						<p style="margin-top: .5rem;">
+							Co-founded a bootstrapped SaaS platform, grew it to 70,000+ users, and sold the business in early 2024.
+						</p>
+						<ul>
+							<li>
+								<b>200,000+ documents created.</b> Built a drag-and-drop Lead Magnet editor in React, publishable to both web and PDF.
+							</li>
+							<li>
+								Engineered a full landing page builder and resource library with React.
+							</li>
+							<li>
+								Architected and maintained the entire Laravel / MySQL backend through the full growth lifecycle.
+							</li>
+							<li>
+								<b>Cost impact:</b> Reduced monthly infrastructure costs by 40% by replacing a third-party SSL service with an in-house provisioning system for tens of thousands of custom-domain certs.
+							</li>
+							<li>
+								Owned technical support and contributed heavily to user facing documentation.
+							</li>
+						</ul>
+					</section>
 
-  </body>
+					<section>
+						<h4>Starfish Web Consulting, <em>CTO and co-founder</em></h4>
+						<strong class="date">
+							<i class="fi fi-br-calendar-day"></i>
+							2005 - 2013</strong>
+						<ul>
+							<li>
+								Built an in-house CMS with a focus on security and WCAG accessibility standards.
+							</li>
+							<li>
+								Delivered bespoke web solutions for businesses, government agencies, and NGOs.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Bluelink.net, <em>Web developer</em></h4>
+						<strong class="date">
+							<i class="fi fi-br-calendar-day"></i>
+							2003 - 2004</strong>
+						<ul>
+							<li>
+								Administered and redesigned Bluelink's web portal; led migration to web standards.
+							</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h4>Oceanfree.net, <em>Technology Analyst</em></h4>
+						<strong class="date">
+							<i class="fi fi-br-calendar-day"></i>
+							2000 - 2001</strong>
+						<ul>
+							<li>
+								Delivered dynamic news and weather feeds to Ireland's first free ISP.
+							</li>
+						</ul>
+					</section>
+
+				</div>
+			</article>
+
+			<article class="grid">
+				<div class="left">
+					<h3>Education</h3>
+					<i class="fi fi-br-graduation-cap icon"></i>
+				</div>
+
+				<div class="main">
+					<h4>Information Management (Bsc) 2.1</h4>
+					<strong>Queens University Belfast</strong>
+				</div>
+			</article>
+
+		</div>
+
+	</body>
 </html>
