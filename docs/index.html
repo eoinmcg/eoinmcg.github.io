@@ -120,5 +120,21 @@
 
 		<script defer="" src="/js/bubbles.js"></script>
 
+		<script>
+		document.addEventListener('DOMContentLoaded', (() => {
+			loadIcons();
+		}), false);
+
+		function loadIcons() {
+			document.querySelectorAll('ul.onthewebs li').forEach((el) => {
+				const a = el.querySelector('a');
+				const svgSource = document.querySelector('#svgs .' + el.className);
+				if (a && svgSource) {
+					a.innerHTML = svgSource.innerHTML;
+				}
+			});
+		}
+		</script>
+
 	</body>
 </html>
