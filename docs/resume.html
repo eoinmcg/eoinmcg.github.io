@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Eoin McGrath, Developer and Founder - Resume</title>
+		<title>Eoin_McGrath_Resume</title>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
@@ -63,6 +63,36 @@
 		ul { padding-left: 1rem; }
 		ul li a { text-decoration: none; }
 
+		@media screen {
+			body {
+				background: #333;
+				padding: 2rem 0;
+			}
+
+			.container {
+				display: block;
+				margin: 0 auto;
+				max-width: 960px;
+				background: #fff;
+				padding: 1rem;
+				border: 3px solid #111;
+				box-shadow: 0 10px 10px #000;
+			}
+
+			#print-button {
+				position: fixed;
+				top: 1rem;
+				right: 1rem;
+				display: block;
+				padding: 5px;
+				background: crimson;
+				color: #fff;
+				border: none;
+				border-radius: 0;
+				font-size: 80%;
+			}
+
+		}
 
 		@media print {
 			@page{
@@ -70,7 +100,9 @@
 				margin-top: 50px;
 				margin-bottom: 50px;
 			}
-			body { background: #fff; }
+			body { background: #fff; padding: 0;}
+			.container { padding: 0; border: none; box-shadow: none;}
+			#print-button { display: none;}
 		}
 
 		</style>
@@ -265,5 +297,23 @@
 
 		</div>
 
+		<button id="print-button">
+			Print PDF
+		</button>
 	</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", (e) => {
+	const printButton = document.querySelector('#print-button');
+	printButton.addEventListener('click', (e) => {
+
+		const today = new Date();
+		const date = today.toISOString().split('T')[0];
+
+		document.title = 'eoinmcgrath_resume_'+date;
+		window.print();
+	}, false);
+});
+</script>
+
 </html>
