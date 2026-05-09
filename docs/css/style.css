@@ -27,6 +27,7 @@ html, body {
 	display: flex;
 	justify-content: center;
 	min-height: 100vh;
+	min-width: 320px;
 	color: #fff;
 	font-size: 1.1rem;
 	line-height: 1.75rem;
@@ -42,6 +43,8 @@ h1, h2 ,h3, h4, h5 {
 	font-family: var(--font-family-monospace);
 }
 
+hr { opacity: .3; }
+
 .page--games h1,
 .page--work h1,
 .page--work h2 {
@@ -51,6 +54,10 @@ h1, h2 ,h3, h4, h5 {
 	padding: 1rem 0;
 }
 
+.page--games h2 {
+	margin: 2rem 0;
+	font: 22px 'Press Start 2P', Arial, sans-serif;
+}
 .page--games h3 {
 	font: 12px 'Press Start 2P', Arial, sans-serif;
 }
@@ -157,7 +164,7 @@ nav a.home {
 	mask-image: var(--svg);
 	-webkit-mask-repeat: no-repeat;
 	mask-size: 100% 100%;
-	--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M298.2 72.6c12.3-11.4 31.3-11.4 43.5 0l90.3 83.7V144c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32v101.5l37.8 35.1c9.6 9 12.8 22.9 8 35.1S557.2 336 544 336h-16v176c0 35.3-28.7 64-64 64H176c-35.3 0-64-28.7-64-64V336H96c-13.2 0-25-8.1-29.8-20.3s-1.6-26.2 8-35.1zM280 288c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24z'/%3E%3C/svg%3E");
+	--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE --%3E%3Cpath fill='currentColor' d='M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z'/%3E%3C/svg%3E");
 }
 
 
@@ -167,7 +174,7 @@ ul.onthewebs {
 	list-style: none;
 	padding: .75rem 0;
 	display: flex;
-  justify-content: center;
+	justify-content: center;
 	gap: 2rem;
 }
 
@@ -346,32 +353,63 @@ p em { text-align: center; }
 
 .game {
 	margin: 1rem 0;
-	background: rgba(0,0,0,0.5);
-	border-right: 3px solid rgba(0,0,0,0.1);
-	border-bottom: 3px solid rgba(0,0,0,0.1);
-	border-color: rgba(0, 0, 0, 0.1);
+	background: rgba(0,0,0,0.25);
+	border: 3px solid rgba(0,0,0,0.1);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 1em;
-	transition: all 0.5s linear;
+	transition: all 0.25s ease-in-out;
+	gap: 1.5rem;
 }
-.game a { color: #fff;  text-decoration: none; }
-.game a { display: inline; }
+
+.game a { color: #fff; text-decoration: none; }
+.game p { margin-top: 0; line-height: 1.4; }
 .game p a:after { content: " \00BB"; }
-.game p { margin-top: 0; }
-.game:hover { background: rgba(0,0,0,0.5); border: 1px solid #000; }
-.game:hover a > h3 { color: #f0f; }
-.game:hover a > { color: #f0f; border: none !important; }
 
+.game:hover {
+	background: rgba(0,0,0,0.8);
+	transform: scale(1.03);
+}
 
-.icon {  flex: 20%  }
-.icon img { width: 128px; border-radius: 10px;  }
+.game:hover h3 { color: #f0f; }
 
-.desc { flex: 60%; }
-.desc h3 { font-size: 120%; color: #fff; margin-top: 0; }
-.desc p {  }
+.icon { flex: 0 0 128px; }
+.icon img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 3px;
+	border: 3px solid #000;
+}
 
+.desc { flex: 1; }
+.desc h3 { font-size: 1.25rem; color: #fff; margin: 0 0 0.5rem 0; }
+
+@media (max-width: 480px) {
+	.game {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 1.5rem;
+	}
+
+	.icon {
+		flex: 0 0 auto;
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto 1rem auto;
+	}
+
+	.icon img {
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+	}
+	.desc h3 {
+		margin-top: 0.5rem;
+	}
+}
 .project {
 	background: rgba(0,0,0,0.5);
 	padding: 1rem;
@@ -479,7 +517,6 @@ to {
 
 @media (max-height: 479px) {
 	.waves { display: none;}
-
 }
 
 .fade-in {
