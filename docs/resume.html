@@ -18,7 +18,7 @@
 		body { font-size: 15px; }
 		h1, h2, h3 { font-family: space-mono, monospace; }
 		h1 { margin: 1rem 0 0 0; font-size: 1.9rem; }
-		h1 small { font-size: 1.1rem; color: #666; }
+		h2 { font-size: 1.1rem; color: #666; }
 		h3 small { color: #666; font-size: 80%; }
 		h2 { font-size: 1.2rem; }
 		h3 { font-size: 1rem; font-weight: normal; color: #666; }
@@ -32,7 +32,7 @@
 		a img { border: 3px solid #333; border-radius: 100%; }
 
 		p.tagline { font-size: 80%; font-weight: bold; font-family: space-mono, monospace; color: #999; text-transform: lowercase;}
-		ul.contact  { display: flex; justify-content: space-between; padding: 0; margin: .5rem 0 0; }
+		ul.contact  { display: flex; justify-content: space-between; padding: 0; margin: .5rem 0 0; width: 100%; }
 		ul.contact li { list-style: none; position: relative; font-size: .7rem; }
 		ul.contact li a { text-decoration: none; font-weight: bold; }
 		ul.contact .icon { transform: scale(1.2); }
@@ -49,6 +49,7 @@
 			grid-template-columns: 15% 80%;
 		}
 
+		header { margin-bottom: 2rem; }
 		header p { font-size: 1rem; margin-top: .5rem; }
 		article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.7rem 0; }
 		article:last-child { border-bottom: none; }
@@ -65,6 +66,7 @@
 		}
 
 		.icon {
+			tex-indent: -9999rem;
 			display: inline-block;
 			width: 1em;
 			height: 1em;
@@ -168,8 +170,8 @@
 					</a>
 				</div>
 				<div class="main">
-					<h1>Eoin McGrath
-						<small>Developer & Founder</small></h1>
+					<h1>Eoin McGrath</h1>
+					<h2>Developer & Founder</h2>
 					<p class="tagline">Available for contract work mid-June 2026</p>
 					<ul class="contact">
 						<li class="email"><a href="mailto:hi@eoinmcgrath.com">
