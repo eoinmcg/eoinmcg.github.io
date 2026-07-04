@@ -84,6 +84,7 @@ hr { opacity: .3; }
 }
 
 .page--home .wrap {
+	font-size: 90%;
 	text-align: center;
 	display: flex;
 	max-width: 400px;
@@ -424,7 +425,12 @@ p em { text-align: center; }
 	color: var(--text-color);
 	transition: all 0.5s ease-in;
 }
-.project img { flex: 100%; width: 100%; border: 5px solid rgba(0,0,0,0.2); }
+
+.project h2 a, .project h3 a {
+	color: #fff;
+	text-decoration: none;
+}
+.project img { flex: 100%; width: 100%; border: 5px solid rgba(0,0,0,0.2); border-radius: 5px;}
 .project .desc { flex: 100%; }
 .project:hover {  background: rgba(0,0,0,0.7); border-color: var(--green); }
 .project:hover h2, .project:hover h3 { color: var(--green); }
