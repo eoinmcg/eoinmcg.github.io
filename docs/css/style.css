@@ -369,6 +369,7 @@ p em { text-align: center; }
 .game p a:after { content: " \00BB"; }
 
 .game:hover {
+	border-color: #f0f;
 	background: rgba(0,0,0,0.8);
 	transform: scale(1.03);
 }
@@ -413,10 +414,12 @@ p em { text-align: center; }
 }
 .project {
 	background: rgba(0,0,0,0.5);
+	border-radius: 10px;
 	padding: 1rem;
 	border-bottom: 3px solid rgba(0,0,0,0.2);
 	margin-bottom: 2rem;
 	transition: all 0.5s ease-in;
+	border: 1px solid rgba(255,255,255,0.2);
 }
 .project h2, .project h3 {
 	flex: 100%;
@@ -430,7 +433,7 @@ p em { text-align: center; }
 	color: #fff;
 	text-decoration: none;
 }
-.project img { flex: 100%; width: 100%; border: 5px solid rgba(0,0,0,0.2); border-radius: 5px;}
+.project img { flex: 100%; width: 100%; border: 5px solid rgba(0,0,0,0.2); border-radius: 10px;}
 .project .desc { flex: 100%; }
 .project:hover {  background: rgba(0,0,0,0.7); border-color: var(--green); }
 .project:hover h2, .project:hover h3 { color: var(--green); }
