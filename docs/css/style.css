@@ -80,7 +80,7 @@ hr { opacity: .3; }
 	z-index: 1;
 	padding: 1rem; 2rem;
 	max-width: 600px;
-	min-height: 60vh;
+	/* min-height: 60vh; */
 }
 
 .page--home .wrap {
