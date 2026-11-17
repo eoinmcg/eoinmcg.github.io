@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eoin McGrath – Senior developer</title>
+<meta name="description" content="Senior full-stack developer and former CTO. Short-term contract projects: legacy rescues, new builds, agency overflow. Laravel, Vue, React, Nuxt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0f1b26; --ink:#ece9e1; --mute:#93a4b3; --line:#8ecae6; --rule:rgba(236,233,225,.14);
+  --accent:#8ecae6; --btn-ink:#0f1b26;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    color-scheme:light;
+    --bg:#f2f0ea; --ink:#14212d; --mute:#566676; --line:#2b6a8a; --rule:rgba(20,33,45,.16);
+    --accent:#1f5d7c; --btn-ink:#f2f0ea;
+  }
+}
+:root[data-theme="light"]{color-scheme:light;--bg:#f2f0ea;--ink:#14212d;--mute:#566676;--line:#2b6a8a;--rule:rgba(20,33,45,.16);--accent:#1f5d7c;--btn-ink:#f2f0ea}
+:root[data-theme="dark"]{color-scheme:dark}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 2.4s ease}
+#bg.on{opacity:1}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;font-size:.95rem}
+nav .name{font-weight:600;text-decoration:none}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--mute);transition:color .2s}
+nav ul a:hover{color:var(--ink)}
+
+.hero{min-height:calc(100svh - 5rem);display:flex;flex-direction:column;justify-content:center;padding:3rem 0 5rem}
+.status{display:inline-flex;align-items:center;gap:.6rem;color:var(--mute);font-size:.95rem;margin:0 0 1.75rem}
+.status i{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:ping 2.8s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%,100%{box-shadow:0 0 0 .7rem transparent}}
+h1{font:400 clamp(2.6rem,7vw,5.5rem)/1.04 var(--serif);letter-spacing:-.015em;margin:0 0 1.75rem}
+.lede{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--mute);max-width:36rem;margin:0 0 2.5rem}
+.lede strong{color:var(--ink);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.btn{display:inline-block;background:var(--ink);color:var(--btn-ink);padding:.9rem 1.5rem;border-radius:.25rem;font-weight:600;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.link{color:var(--ink);text-underline-offset:.3em;text-decoration-color:var(--rule)}
+.link:hover{text-decoration-color:var(--accent)}
+
+section{padding:5rem 0;border-top:1px solid var(--rule)}
+h2{font:400 clamp(2rem,4vw,3rem)/1.1 var(--serif);margin:0 0 3rem;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2rem 4rem}
+.grid > h2{margin:0}
+h3{font-size:1.1rem;font-weight:600;margin:0 0 .4rem}
+.rows > div{padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+.rows > div:first-child{padding-top:0}
+.rows > div:last-child{border-bottom:0}
+.rows p{margin:0;color:var(--mute);max-width:40rem}
+.rows .meta{margin-top:.6rem;font-size:.9rem;color:var(--mute);opacity:.85}
+.rows .meta b{font-weight:500;color:var(--ink)}
+.big{font:400 clamp(1.5rem,2.6vw,2.1rem)/1.3 var(--serif);max-width:44rem;margin:0}
+.big em{font-style:normal;color:var(--accent)}
+.facts{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1.5rem 2rem}
+.facts li{color:var(--mute);font-size:.98rem;padding-top:1rem;border-top:1px solid var(--rule)}
+.facts b{display:block;color:var(--ink);font:400 1.9rem/1.1 var(--serif);margin-bottom:.35rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;padding:0;list-style:none}
+.tags li{font-size:.82rem;color:var(--mute);border:1px solid var(--rule);border-radius:2rem;padding:.15rem .7rem}
+.contact{padding-bottom:6rem}
+.contact h2{max-width:16ch}
+.mail{font:400 clamp(1.6rem,4.2vw,3rem)/1.1 var(--serif);text-decoration-color:var(--rule);text-underline-offset:.2em;word-break:break-word}
+.mail:hover{text-decoration-color:var(--accent)}
+.social{display:flex;gap:1.5rem;margin-top:1.5rem;color:var(--mute)}
+footer{padding:2rem 0 3rem;color:var(--mute);font-size:.9rem;border-top:1px solid var(--rule)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr;gap:1.5rem}
+  nav ul{gap:1.1rem}
+  section{padding:3.5rem 0}
+  .hero{padding-top:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .status i{animation:none}
+  #bg{transition:none}
+}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a class="name" href="#top">Eoin McGrath</a>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <p class="status"><i></i>Available for contract work</p>
+      <h1>Senior developer.<br>Hard problems, shipped.</h1>
+      <p class="lede">Twenty years of shipping web products, ten of them as co-founder and CTO of <strong>beacon.by</strong>, which grew into a profitable business and was sold in 2024. I now take on a few focused projects at a time: legacy rescues, new builds and overflow work for agencies.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:hi@eoinmcgrath.com?subject=Project%20enquiry">Email me about a project</a>
+        <a class="link" href="#work">See selected work</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="proof">
+    <div class="wrap">
+      <p class="big">I’ve run production systems through real growth, so I know which shortcuts are safe and which ones cost you later.</p>
+      <ul class="facts">
+        <li><b>200,000+</b>documents created by about 70,000 users in one editor I led</li>
+        <li><b>10,000s</b>of PDF requests a day handled by a microservice I built</li>
+        <li><b>10 years</b>from first commit to a profitable exit</li>
+        <li><b>Laravel 4 to today</b>one codebase upgraded continuously, never rewritten</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap grid">
+      <h2>How I can help</h2>
+      <div class="rows">
+        <div>
+          <h3>Rescue and modernise a legacy app</h3>
+          <p>Upgrade old Laravel and PHP codebases, untangle front ends, add tests where they matter, and leave the code easier for the next developer.</p>
+        </div>
+        <div>
+          <h3>Build a new product or MVP</h3>
+          <p>From scoping to a deployed, billable product. Laravel, Vue, React or Nuxt, with Stripe, auth and dashboards done properly.</p>
+        </div>
+        <div>
+          <h3>Extra senior capacity for agencies</h3>
+          <p>Drop in on a client project, take a hard feature end to end, or review architecture before it becomes expensive.</p>
+        </div>
+        <div>
+          <h3>Servers, performance and PDFs</h3>
+          <p>Secure, scalable Linux setups, automated SSL, and PDF generation or editing in the browser and on the server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap grid">
+      <h2>Selected work</h2>
+      <div class="rows">
+        <div>
+          <h3><a href="https://beepdf.app">beePDF</a></h3>
+          <p>A privacy-first PDF toolkit that runs entirely in the browser. Compare, sign and annotate documents, installable as an offline-capable app on mobile.</p>
+          <ul class="tags"><li>Nuxt</li><li>PWA</li><li>Privacy</li></ul>
+        </div>
+        <div>
+          <h3>Lead magnet and PDF editor, beacon.by</h3>
+          <p>A drag-and-drop document editor built for ease of use. About 70,000 people produced more than 200,000 documents with it.</p>
+          <ul class="tags"><li>React</li></ul>
+        </div>
+        <div>
+          <h3>PDF generation service</h3>
+          <p>A microservice that turns user-built web pages into PDFs, reliable at tens of thousands of requests a day.</p>
+          <ul class="tags"><li>Node</li></ul>
+        </div>
+        <div>
+          <h3>Platform backend and dashboard</h3>
+          <p>Subscriptions, auth and content delivery, kept current for a decade. I later rebuilt the legacy dashboard for faster loads and more interactivity.</p>
+          <ul class="tags"><li>Laravel</li><li>MySQL</li><li>Vue</li><li>Stripe</li></ul>
+        </div>
+        <div>
+          <h3>Infrastructure that held up</h3>
+          <p>Automated SSL for customer domains with Let’s Encrypt, moved in-house to cut monthly costs. The main server absorbed tens of thousands of new sign-ups during an AppSumo launch.</p>
+          <ul class="tags"><li>Linux</li><li>Certbot</li></ul>
+        </div>
+        <div>
+          <h3>Side projects</h3>
+          <p>1st place in a Dev.to front-end challenge with <a class="link" href="https://eoinmcgrath.com/mountains">pure CSS mountains</a>, plus <a class="link" href="https://eoinmcgrath.com/games">small browser games</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap grid">
+      <h2>How we’d work</h2>
+      <div class="rows">
+        <div>
+          <h3>Short, defined engagements</h3>
+          <p>Typically a few weeks to a few months. We agree the scope on a call, then I send a plan and an estimate before any work begins.</p>
+        </div>
+        <div>
+          <h3>Direct communication</h3>
+          <p>You talk to the person doing the work. Regular updates, small deploys, and code you own from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Have a project in mind?</h2>
+      <a class="mail" href="mailto:hi@eoinmcgrath.com?subject=Project%20enquiry">hi@eoinmcgrath.com</a>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/eoinmcg/">LinkedIn</a>
+        <a href="https://github.com/eoinmcg">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© Eoin McGrath</span><span>Currently building privacy-first web tools</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var canvas=document.getElementById('bg');
+  if(!window.THREE){return;}
+  var renderer;
+  try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){return;}
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(38,1,0.1,100);
+  camera.position.set(0,0,11);
+
+  var css=getComputedStyle(document.documentElement);
+  var col=new THREE.Color((css.getPropertyValue('--line')||'#8ecae6').trim());
+
+  // Stack of document-like sheets, fanned into a slow helix
+  var group=new THREE.Group();
+  var bgCol=new THREE.Color((css.getPropertyValue('--bg')||'#0f1b26').trim());
+  scene.fog=new THREE.Fog(bgCol,6,17);
+  camera.position.set(0,3.4,9);
+
+  // Slowly breathing field of points, like a hillside seen at dusk
+  var CX=120, CZ=70, SP=0.24;
+  var N=CX*CZ, pos=new Float32Array(N*3);
+  for(var zi=0;zi<CZ;zi++){for(var xi=0;xi<CX;xi++){
+    var id=(zi*CX+xi)*3;
+    pos[id]=(xi-CX/2)*SP+(Math.random()-.5)*0.08;
+    pos[id+2]=(zi-CZ/2)*SP+(Math.random()-.5)*0.08;
+  }}
+  var geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  group.add(new THREE.Points(geo,new THREE.PointsMaterial({color:col,size:0.028,transparent:true,opacity:0.5,depthWrite:false})));
+
+  // A few faint contour lines that follow the same surface
+  var rows=[], ROWSTEP=9;
+  for(var rz=4;rz<CZ;rz+=ROWSTEP){
+    var lg=new THREE.BufferGeometry();
+    lg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(CX*3),3));
+    var ln=new THREE.Line(lg,new THREE.LineBasicMaterial({color:col,transparent:true,opacity:0.16,depthWrite:false}));
+    group.add(ln); rows.push({z:rz,line:ln});
+  }
+  function h(x,z,t){
+    return (Math.sin(x*0.45+t*0.30)*0.55+Math.sin(z*0.62-t*0.24+x*0.18)*0.45+Math.sin((x+z)*0.26+t*0.17)*0.6+Math.sin(x*1.1-z*0.8+t*0.4)*0.12)*0.6;
+  }
+  function update(t){
+    for(var i=0;i<N;i++){var j=i*3;pos[j+1]=h(pos[j],pos[j+2],t);}
+    geo.attributes.position.needsUpdate=true;
+    for(var r=0;r<rows.length;r++){
+      var a=rows[r].line.geometry.attributes.position, zz=(rows[r].z-CZ/2)*SP;
+      for(var c=0;c<CX;c++){var xx=(c-CX/2)*SP;a.setXYZ(c,xx,h(xx,zz,t)+0.01,zz);}
+      a.needsUpdate=true;
+    }
+  }
+  group.rotation.y=-0.25;
+  scene.add(group);
+
+  var mx=0,my=0,tx=0,ty=0,scrollY=0;
+  function resize(){
+    var w=window.innerWidth,h=window.innerHeight;
+    renderer.setSize(w,h,false);
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+    var wide=w/h>1.1;
+    group.position.x=0;
+    group.scale.setScalar(wide?1:0.85);
+    canvas.style.opacity='';
+    canvas.dataset.dim=wide?'0':'1';
+  }
+  resize();
+  window.addEventListener('resize',resize);
+  if(!reduce){
+    window.addEventListener('pointermove',function(e){
+      tx=(e.clientX/window.innerWidth-.5); ty=(e.clientY/window.innerHeight-.5);
+    },{passive:true});
+    window.addEventListener('scroll',function(){scrollY=window.scrollY/window.innerHeight;},{passive:true});
+  }
+
+  var clock=new THREE.Clock();
+  function frame(){
+    var dt=clock.getDelta();
+    mx+=(tx-mx)*0.03; my+=(ty-my)*0.03;
+    update(clock.elapsedTime);
+    camera.position.x=mx*0.9;
+    camera.position.y=3.4-my*0.5-scrollY*0.7;
+    camera.lookAt(0,0.2,0);
+    renderer.render(scene,camera);
+    requestAnimationFrame(frame);
+  }
+  if(reduce){update(4);camera.lookAt(0,0.2,0);renderer.render(scene,camera);}else{frame();}
+  canvas.classList.add('on');
+  if(canvas.dataset.dim==='1'){canvas.style.maxHeight='none';}
+})();
+</script>
+</body>
+</html>

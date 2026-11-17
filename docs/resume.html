@@ -51,7 +51,7 @@
 
 		header { margin-bottom: 2rem; }
 		header p { font-size: 1rem; margin-top: .5rem; }
-		article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.7rem 0; }
+		article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.5rem 0; }
 		article:last-child { border-bottom: none; }
 		section { margin-top: 1.1rem; margin-bottom: 2rem; }
 		section:first-child { margin-top: 0; }
@@ -66,7 +66,7 @@
 		}
 
 		.icon {
-			tex-indent: -9999rem;
+			text-indent: -9999rem;
 			display: inline-block;
 			width: 1em;
 			height: 1em;
@@ -136,11 +136,15 @@
 				box-shadow: 0 10px 10px #000;
 			}
 
-			#print-button {
+			#tool-bar {
 				position: fixed;
 				top: 1rem;
 				right: 1rem;
-				display: block;
+				display: flex;
+				gap: 2px;
+			}
+
+			#tool-bar button#print-button {
 				padding: 5px;
 				background: crimson;
 				color: #fff;
@@ -149,17 +153,62 @@
 				font-size: 80%;
 			}
 
+
+			#tool-bar button#edit-button {
+				background: transparent;
+				border: none;
+				padding: 0;
+			}
+
+			#tool-bar .icon-edit {
+				font-size: 180%;
+				background: #777;
+				--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M535.6 85.7C513.7 63.8 478.3 63.8 456.4 85.7L432 110.1L529.9 208L554.3 183.6C576.2 161.7 576.2 126.3 554.3 104.4L535.6 85.7zM236.4 305.7C230.3 311.8 225.6 319.3 222.9 327.6L193.3 416.4C190.4 425 192.7 434.5 199.1 441C205.5 447.5 215 449.7 223.7 446.8L312.5 417.2C320.7 414.5 328.2 409.8 334.4 403.7L496 241.9L398.1 144L236.4 305.7zM160 128C107 128 64 171 64 224L64 480C64 533 107 576 160 576L416 576C469 576 512 533 512 480L512 384C512 366.3 497.7 352 480 352C462.3 352 448 366.3 448 384L448 480C448 497.7 433.7 512 416 512L160 512C142.3 512 128 497.7 128 480L128 224C128 206.3 142.3 192 160 192L256 192C273.7 192 288 177.7 288 160C288 142.3 273.7 128 256 128L160 128z'/%3E%3C/svg%3E");
+			}
+
+			#edit-button.active .icon-edit {
+				background: hotpink;
+			}
+
+
+			#tool-bar button:focus {
+				outline: 3px solid lime;
+			}
+
+
 		}
 
 		@media print {
-			@page{
+			@page {
 				size: A4;
-				margin-top: 50px;
-				margin-bottom: 50px;
+				margin-top: 60px;
+				margin-bottom: 60px;
 			}
-			body { background: #fff; padding: 0;}
-			.container { padding: 0; border: none; box-shadow: none;}
-			#print-button { display: none;}
+
+			body {
+				background: #fff;
+				padding: 0;
+			}
+
+			.container {
+				padding: 0;
+				border: none;
+				box-shadow: none;
+			}
+
+			#tool-bar {
+				display: none;
+			}
+
+			/* Fallback for print engines that struggle with CSS masks */
+			.icon {
+				background-color: transparent;
+				background-image: var(--svg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				-webkit-mask: none;
+				mask: none;
+			}
 		}
 
 		</style>
@@ -176,7 +225,7 @@
 				<div class="main">
 					<h1>Eoin McGrath</h1>
 					<h2>Developer & Founder</h2>
-					<p class="tagline">Available for contract work August 2026</p>
+					<p class="tagline">Available for contract work</p>
 					<ul class="contact">
 						<li class="email"><a href="mailto:hi@eoinmcgrath.com">
 							<span class="icon icon-email"></span>
@@ -248,14 +297,14 @@
 				<div class="main">
 					<section>
 						<h4>
-							beePDF.tools, a privacy focused PDF toolkit
+							beePDF.app, a privacy focused PDF toolkit
 						</h4>
 						<ul>
 							<li>Privacy centric, mobile optimized PDF toolkit</li>
 							<li>PWA with full offline functionality</li>
 							<li>Compare, sign, merge, reorder, annotate PDFs + more</li>
 							<li>Built with Nuxt and pico css</li>
-							<li>URL: <a href="https://beePDF.tools">https://beePDF.tools</a></li>
+							<li>URL: <a href="https://beePDF.app">https://beePDF.app</a></li>
 						</ul>
 					</section>
 				</div>
@@ -382,9 +431,15 @@
 
 		</div>
 
-		<button id="print-button">
-			Print PDF
-		</button>
+		<div id="tool-bar">
+			<button id="print-button">
+				Print PDF
+			</button>
+			<button id="edit-button">
+				<span class="icon icon-edit"></span>
+			</button>
+		</div>
+
 	</body>
 
 <script>
@@ -398,6 +453,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		document.title = 'eoinmcgrath_resume_'+date;
 		window.print();
 	}, false);
+
+	const editButton = document.querySelector('#edit-button');
+	editButton.addEventListener('click', (e) => {
+		const element = document.querySelector('.container');
+		const currentState = element.contentEditable
+		if (currentState === 'false' || currentState === 'inherit') {
+			element.contentEditable = true
+			editButton.classList.add('active')
+			element.focus();
+		} else {
+			element.contentEditable = false
+			element.blur();
+			editButton.classList.remove('active')
+		}
+	}, false);
+
 });
 </script>
 
