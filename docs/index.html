@@ -59,9 +59,6 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/base.css">
 <style>
 /* Homepage-only variations */
@@ -112,6 +109,10 @@ main {
   justify-content: center;
   padding: 3rem 0 5rem;
 }
+
+/* experimenting with lighthouse optimization */
+.js .hero h1 { animation: none; }
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -646,7 +647,7 @@ h3 {
 								<span class="browser-dots"></span>
 								<span class="browser-url">beepdf.app</span>
 							</div>
-							<img src="/i/beepdf_screenshot.png" alt="Screenshot of the beePDF browser-based PDF toolkit" width="800" height="500" loading="lazy" decoding="async">
+							<img src="/i/beepdf_screenshot.webp" alt="Screenshot of the beePDF browser-based PDF toolkit" width="800" height="500" loading="lazy" decoding="async">
 						</div>
 
           </div>
