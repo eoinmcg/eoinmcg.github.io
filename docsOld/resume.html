@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eoin_McGrath_Resume</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+		>
+		<style>
+
+		@font-face {
+			font-family: space-mono;
+			src: url('css/SpaceMono-Bold.ttf');
+		}
+
+		body { font-size: 15px; }
+		h1, h2, h3 { font-family: space-mono, monospace; }
+		h1 { margin: 1rem 0 0 0; font-size: 1.9rem; }
+		h2 { font-size: 1.1rem; color: #666; }
+		h3 small { color: #666; font-size: 80%; }
+		h2 { font-size: 1.2rem; }
+		h3 { font-size: 1rem; font-weight: normal; color: #666; }
+		h4 { margin: 0 0 .5rem 0; font-size: 1rem; }
+		h4 small { color: #666; font-size: 80%; }
+		h4 em { font-style: normal; font-size: 90%; }
+		strong { color: #888; font-size: .8rem; }
+		strong.date { position: relative; }
+		strong.date i.fi { position: absolute; top: 0px; left: 0px; opacity: 0.75; }
+
+		a img { border: 3px solid #333; border-radius: 100%; }
+
+		p.tagline { font-size: 80%; font-weight: bold; font-family: space-mono, monospace; color: #999; text-transform: lowercase;}
+		ul.contact  { display: flex; justify-content: space-between; padding: 0; margin: .5rem 0 0; width: 100%; }
+		ul.contact li { list-style: none; position: relative; font-size: .7rem; }
+		ul.contact li a { text-decoration: none; font-weight: bold; }
+		ul.contact .icon { transform: scale(1.2); }
+
+		ul.contact i.fi { position: absolute; top: 2px; left: 2px; }
+
+		.left h3 { margin: 0 0 10px 0; padding: 0; }
+
+		body { background: #222; }
+		.container { background: #fff; max-width: 1024px; }
+
+		.grid {
+			display: grid;
+			grid-template-columns: 15% 80%;
+		}
+
+		header { margin-bottom: 2rem; }
+		header p { font-size: 1rem; margin-top: .5rem; }
+		article { box-shadow: none; border-bottom: 1px solid #eee; padding: 0.5rem 0; }
+		article:last-child { border-bottom: none; }
+		section { margin-top: 1.1rem; margin-bottom: 2rem; }
+		section:first-child { margin-top: 0; }
+
+		#skills ul  { columns: 6; }
+		#skills ul li  {  list-style: none; }
+		ul { padding-left: 1rem; }
+		ul li a { text-decoration: none; }
+
+		ul li::marker {
+			color: #999;
+		}
+
+		.icon {
+			text-indent: -9999rem;
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			vertical-align: middle;
+			background-color: currentColor;
+			-webkit-mask-image: var(--svg);
+			mask-image: var(--svg);
+			-webkit-mask-repeat: no-repeat;
+			mask-size: 100% 100%;
+			-webkit-print-color-adjust: exact;
+		}
+
+		.left .icon { transform: scale(3); opacity: .1; margin: .75rem 0 0 1.5rem; }
+
+		.icon-calendar {
+			margin-top: -.2rem;
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M224 64c-17.7 0-32 14.3-32 32v32h-32c-35.3 0-64 28.7-64 64v48h448v-48c0-35.3-28.7-64-64-64h-32V96c0-17.7-14.3-32-32-32s-32 14.3-32 32v32H256V96c0-17.7-14.3-32-32-32M96 288v192c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V288z'/%3E%3C/svg%3E");
+		}
+
+		.icon-email {
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M112 128c-26.5 0-48 21.5-48 48c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48zM64 260v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V260L377.6 408.8c-34.1 25.6-81.1 25.6-115.2 0z'/%3E%3C/svg%3E");
+		}
+
+		.icon-linkedin {
+			margin-top: -.1rem;
+				--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a2.7 2.7 0 0 0-2.7-2.7c-1.2 0-2.3.7-2.8 1.7v-1.5H10V18.5h3v-5c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v5h3M6.2 7.7c-1 0-1.8.7-1.8 1.7s.8 1.7 1.8 1.7 1.7-.8 1.7-1.7-.7-1.7-1.7-1.7M4.7 18.5h3V12h-3v6.5z'/%3E%3C/svg%3E");
+		}
+
+		.icon-github {
+			margin-top: -.1rem;
+				--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.578.688.481A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z'/%3E%3C/svg%3E");
+		}
+
+		.icon-code {
+				--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M392.8 65.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 121.6c-12.5 12.5-12.5 32.8 0 45.3L562.7 320l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 320l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z'/%3E%3C/svg%3E");
+		}
+
+		.icon-skills {
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M259.1 73.5c3-14.8 16.1-25.5 31.3-25.5h59.8c15.2 0 28.3 10.7 31.3 25.5l14.5 70c14.1 6 27.3 13.7 39.3 22.8l67.8-22.5c14.4-4.8 30.2 1.2 37.8 14.4l29.9 51.8c7.6 13.2 4.9 29.8-6.5 39.9L511 297.3c.9 7.4 1.3 15 1.3 22.7s-.5 15.3-1.3 22.7l53.4 47.5c11.4 10.1 14 26.8 6.5 39.9L541 481.9c-7.6 13.1-23.4 19.2-37.8 14.4l-67.8-22.5c-12.1 9.1-25.3 16.7-39.3 22.8l-14.4 69.9c-3.1 14.9-16.2 25.5-31.3 25.5h-59.8c-15.2 0-28.3-10.7-31.3-25.5l-14.4-69.9c-14.1-6-27.2-13.7-39.3-22.8l-68.1 22.5c-14.4 4.8-30.2-1.2-37.8-14.4l-29.9-51.8c-7.6-13.2-4.9-29.8 6.5-39.9l53.4-47.5c-.9-7.4-1.3-15-1.3-22.7s.5-15.3 1.3-22.7l-53.4-47.5c-11.4-10.1-14-26.8-6.5-39.9l29.9-51.8c7.6-13.2 23.4-19.2 37.8-14.4l67.8 22.5c12.1-9.1 25.3-16.7 39.3-22.8zM320.3 400c44.2-.2 79.9-36.1 79.7-80.3s-36.1-79.9-80.3-79.7s-79.9 36.1-79.7 80.3s36.1 79.9 80.3 79.7'/%3E%3C/svg%3E");
+		}
+
+		.icon-experiments {
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M384 64H224c-17.7 0-32 14.3-32 32s14.3 32 32 32v151.5L103.5 490.3c-4.9 8.7-7.5 18.4-7.5 28.4c0 31.7 25.6 57.3 57.3 57.3h333.4c31.6 0 57.3-25.6 57.3-57.3c0-10-2.6-19.8-7.5-28.4L416 279.5V128c17.7 0 32-14.3 32-32s-14.3-32-32-32zm-96 215.5V128h64v151.5c0 11.1 2.9 22.1 8.4 31.8L402 384H238l41.6-72.7c5.5-9.7 8.4-20.6 8.4-31.8'/%3E%3C/svg%3E");
+		}
+
+		.icon-experience {
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M264 112h112c4.4 0 8 3.6 8 8v40H256v-40c0-4.4 3.6-8 8-8m-56 8v40h-80c-35.3 0-64 28.7-64 64v96h512v-96c0-35.3-28.7-64-64-64h-80v-40c0-30.9-25.1-56-56-56H264c-30.9 0-56 25.1-56 56m368 248H384v16c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32v-16H64v112c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64z'/%3E%3C/svg%3E");
+		}
+
+		.icon-education {
+			--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='m80 259.8l209.2 86.1c9.8 4 20.2 6.1 30.8 6.1s21-2.1 30.8-6.1l242.4-99.8c9-3.7 14.8-12.4 14.8-22.1s-5.8-18.4-14.8-22.1l-242.4-99.8c-9.8-4-20.2-6.1-30.8-6.1s-21 2.1-30.8 6.1L46.8 201.9c-9 3.7-14.8 12.4-14.8 22.1v296c0 13.3 10.7 24 24 24s24-10.7 24-24zm48 71.7V448c0 53 86 96 192 96s192-43 192-96V331.4l-142.9 58.9c-15.6 6.4-32.2 9.7-49.1 9.7s-33.5-3.3-49.1-9.7L128 331.4z'/%3E%3C/svg%3E");
+		}
+
+		@media screen {
+			body {
+				background: #333;
+				padding: 2rem 0;
+			}
+
+			.container {
+				display: block;
+				margin: 0 auto;
+				max-width: 960px;
+				background: #fff;
+				padding: 1rem;
+				border: 3px solid #111;
+				box-shadow: 0 10px 10px #000;
+			}
+
+			#tool-bar {
+				position: fixed;
+				top: 1rem;
+				right: 1rem;
+				display: flex;
+				gap: 2px;
+			}
+
+			#tool-bar button#print-button {
+				padding: 5px;
+				background: crimson;
+				color: #fff;
+				border: none;
+				border-radius: 0;
+				font-size: 80%;
+			}
+
+
+			#tool-bar button#edit-button {
+				background: transparent;
+				border: none;
+				padding: 0;
+			}
+
+			#tool-bar .icon-edit {
+				font-size: 180%;
+				background: #777;
+				--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 640 640'%3E%3C!-- Icon from Font Awesome Solid by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' d='M535.6 85.7C513.7 63.8 478.3 63.8 456.4 85.7L432 110.1L529.9 208L554.3 183.6C576.2 161.7 576.2 126.3 554.3 104.4L535.6 85.7zM236.4 305.7C230.3 311.8 225.6 319.3 222.9 327.6L193.3 416.4C190.4 425 192.7 434.5 199.1 441C205.5 447.5 215 449.7 223.7 446.8L312.5 417.2C320.7 414.5 328.2 409.8 334.4 403.7L496 241.9L398.1 144L236.4 305.7zM160 128C107 128 64 171 64 224L64 480C64 533 107 576 160 576L416 576C469 576 512 533 512 480L512 384C512 366.3 497.7 352 480 352C462.3 352 448 366.3 448 384L448 480C448 497.7 433.7 512 416 512L160 512C142.3 512 128 497.7 128 480L128 224C128 206.3 142.3 192 160 192L256 192C273.7 192 288 177.7 288 160C288 142.3 273.7 128 256 128L160 128z'/%3E%3C/svg%3E");
+			}
+
+			#edit-button.active .icon-edit {
+				background: hotpink;
+			}
+
+
+			#tool-bar button:focus {
+				outline: 3px solid lime;
+			}
+
+
+		}
+
+		@media print {
+			@page {
+				size: A4;
+				margin-top: 60px;
+				margin-bottom: 60px;
+			}
+
+			body {
+				background: #fff;
+				padding: 0;
+			}
+
+			.container {
+				padding: 0;
+				border: none;
+				box-shadow: none;
+			}
+
+			#tool-bar {
+				display: none;
+			}
+
+			/* Fallback for print engines that struggle with CSS masks */
+			.icon {
+				background-color: transparent;
+				background-image: var(--svg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				-webkit-mask: none;
+				mask: none;
+			}
+		}
+
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<header class="grid">
+				<div class="left">
+					<a href="https://eoinmcgrath.com">
+						<img src="i/profile.jpeg" alt="Photo of Eoin McGrath">
+					</a>
+				</div>
+				<div class="main">
+					<h1>Eoin McGrath</h1>
+					<h2>Developer & Founder</h2>
+					<p class="tagline">Available for contract work</p>
+					<ul class="contact">
+						<li class="email"><a href="mailto:hi@eoinmcgrath.com">
+							<span class="icon icon-email"></span>
+							hi@eoinmcgrath.com
+						</a></li>
+						<li class="linkedin"><a href="https://www.linkedin.com/in/eoinmcg/">
+							<span class="icon icon-linkedin"></span>
+							linkedin.com/in/eoinmcg
+						</a></li>
+						<li class="github"><a href="https://github.com/eoinmcg">
+							<span class="icon icon-github"></span>
+							github.com/eoinmcg
+						</a></li>
+					</ul>
+					<div class="summary">
+						<p>
+							Co-founded, scaled, and sold a profitable SaaS business (beacon.by) - serving 70,000+ users and 200,000+ generated documents.
+						</p>
+						<p>
+							Brings rare founder-level perspective to engineering: architecting systems, optimising infrastructure costs, and building products that users actually keep using.
+						</p>
+						<p>
+							Equally comfortable deep in a backend or crafting polished interfaces.
+						</p>
+					</div>
+				</div>
+			</header>
+
+
+
+			<article class="grid" id="skills">
+				<div class="left">
+					<h3>Skills</h3>
+					<span class="icon icon-skills"></span>
+
+				</div>
+
+				<div class="main">
+					<ul>
+						<li>JavaScript</li>
+						<li>Node.js</li>
+						<li>Linux</li>
+						<li>Git</li>
+						<li>RDBMS</li>
+						<li>Laravel</li>
+						<li>HTML5</li>
+						<li>CSS</li>
+						<li>React</li>
+						<li>Nuxt</li>
+						<li>TypeScript</li>
+						<li>Writing</li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="grid">
+
+
+				<div class="left">
+					<h3>Currently
+						<small>
+
+						</small>
+					</h3>
+					<span class="icon icon-code"></span>
+
+				</div>
+
+				<div class="main">
+					<section>
+						<h4>
+							beePDF.app, a privacy focused PDF toolkit
+						</h4>
+						<ul>
+							<li>Privacy centric, mobile optimized PDF toolkit</li>
+							<li>PWA with full offline functionality</li>
+							<li>Compare, sign, merge, reorder, annotate PDFs + more</li>
+							<li>Built with Nuxt and pico css</li>
+							<li>URL: <a href="https://beePDF.app">https://beePDF.app</a></li>
+						</ul>
+					</section>
+				</div>
+
+
+				<div class="left">
+					<h3>Recent Activity
+						<small>
+							2024-2026
+						</small>
+					</h3>
+					<span class="icon icon-experiments"></span>
+
+				</div>
+
+				<div class="main">
+					<section>
+						<h4>
+							Contract work <small>(available from August 2026)</small>
+							<br />
+							Staying sharp through competitions, open source, and published writing:
+						</h4>
+						<ul>
+							<li>LittleJS Jam: <a href="https://itch.io/jam/littlejs-game-jam-2025/rate/4028953">First place</a>. I have also contributed to the LittleJS framework</li>
+							<li>Dev.to challenge: <a href="https://dev.to/eoinmcg/frontend-challenge-world-asteroid-day-30th-june-l7c">First place</a>, build with React, typescript and R3F.</li>
+							<li>AI Course: <a href="https://academy.towardsai.net/certificates/7pp93ui82j">Certificate</a></li>
+							<li>Article: Vanilla JS game: <a href="https://www.sitepoint.com/author/emcgrath/">Published on SitePoint</a> </li>
+							<li>Tutorial: Make a mobile first JS game: <a href="https://eoinmcgrath.com/little-ski/tutorial.html">View</a> </li>
+							<li>Course on Web Accessibility: <a href="https://courses.edx.org/certificates/1cc304108e1c4a2aaacc51ab6f7a4c27?_gl=1*skpyr0*_gcl_au*OTc2NTMzOTEzLjE3MzE0OTA4MjM.*_ga*MTE5ODk0MTAwLjE3MzE0OTA4MjQ.*_ga_D3KS4KMDT0*MTczNjk0MDQyMy4zNi4xLjE3MzY5NDA0NDcuMzYuMC4w">Certificate</a></li>
+						</ul>
+					</section>
+				</div>
+
+				<div class="left">
+					<h3>Experience</h3>
+					<span class="icon icon-experience"></span>
+
+				</div>
+
+				<div class="main">
+
+					<section>
+						<h4>Beacon.by, <em>CTO and co-founder</em></h4>
+						<strong class="date">
+							<span class="icon icon-calendar"></span>
+							2013 - 2024
+						</strong>
+						<p style="margin-top: .5rem;">
+							Co-founded a bootstrapped SaaS platform, grew it to 70,000+ users, and sold the business in early 2024.
+						</p>
+						<ul>
+							<li>
+								<b>200,000+ documents created.</b> Built a drag-and-drop Lead Magnet editor in React, publishable to both web and PDF.
+							</li>
+							<li>
+								Engineered a full landing page builder and resource library with React.
+							</li>
+							<li>
+								Architected and maintained the entire Laravel / MySQL backend through the full growth lifecycle.
+							</li>
+							<li>
+								<b>Cost impact:</b> Reduced monthly infrastructure costs by 40% by replacing a third-party SSL service with an in-house provisioning system for tens of thousands of custom-domain certs.
+							</li>
+							<li>
+								Owned technical support and contributed heavily to user facing documentation.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Starfish Web Consulting, <em>CTO and co-founder</em></h4>
+						<strong class="date">
+							<span class="icon icon-calendar"></span>
+							2005 - 2013</strong>
+						<ul>
+							<li>
+								Built an in-house CMS with a focus on security and WCAG accessibility standards.
+							</li>
+							<li>
+								Delivered bespoke web solutions for businesses, government agencies, and NGOs.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Bluelink.net, <em>Web developer</em></h4>
+						<strong class="date">
+							<span class="icon icon-calendar"></span>
+							2003 - 2004</strong>
+						<ul>
+							<li>
+								Administered and redesigned Bluelink's web portal; led migration to web standards.
+							</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h4>Oceanfree.net, <em>Technology Analyst</em></h4>
+						<strong class="date">
+							<span class="icon icon-calendar"></span>
+							2000 - 2001</strong>
+						<ul>
+							<li>
+								Delivered dynamic news and weather feeds to Ireland's first free ISP.
+							</li>
+						</ul>
+					</section>
+
+				</div>
+			</article>
+
+			<article class="grid">
+				<div class="left">
+					<h3>Education</h3>
+					<span class="icon icon-education"></span>
+				</div>
+
+				<div class="main">
+					<h4>BSc Information Management, 2.1</h4>
+					<strong>Queen's University Belfast</strong>
+				</div>
+			</article>
+
+		</div>
+
+		<div id="tool-bar">
+			<button id="print-button">
+				Print PDF
+			</button>
+			<button id="edit-button">
+				<span class="icon icon-edit"></span>
+			</button>
+		</div>
+
+	</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", (e) => {
+	const printButton = document.querySelector('#print-button');
+	printButton.addEventListener('click', (e) => {
+
+		const today = new Date();
+		const date = today.toISOString().split('T')[0];
+
+		document.title = 'eoinmcgrath_resume_'+date;
+		window.print();
+	}, false);
+
+	const editButton = document.querySelector('#edit-button');
+	editButton.addEventListener('click', (e) => {
+		const element = document.querySelector('.container');
+		const currentState = element.contentEditable
+		if (currentState === 'false' || currentState === 'inherit') {
+			element.contentEditable = true
+			editButton.classList.add('active')
+			element.focus();
+		} else {
+			element.contentEditable = false
+			element.blur();
+			editButton.classList.remove('active')
+		}
+	}, false);
+
+});
+</script>
+
+</html>
