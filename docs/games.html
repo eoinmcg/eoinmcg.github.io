@@ -42,14 +42,16 @@ body::before {
   pointer-events: none;
   background: linear-gradient(180deg,#122434,#0a1623 55%,#03080f);
 }
-main { padding: 1rem; }
+
+main { padding: 1rem;  margin: 0 auto;  }
+
 .hero {
   position: relative;
   isolation: isolate;
   min-height: 23rem;
   display: flex;
   align-items: center;
-  padding: 4.5rem 0 5rem;
+  padding-block: 4.5rem 0 5rem;
 }
 .hero::after {
   content: "";
@@ -166,15 +168,17 @@ h2 {
   border-color: rgba(142,202,230,.48);
 }
 .game-card--feature {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   align-items: stretch;
 }
+
 .game-card--feature .art {
-  height: 100%;
-  min-height: 17rem;
-  aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
 }
 .game-card--feature .game-body {
   justify-content: center;
@@ -202,12 +206,15 @@ h2 {
   image-rendering: pixelated;
 }
 
-/* Keep the featured card's image square too */
-.game-card--feature .art {
-  aspect-ratio: 1 / 1;
-  height: auto;
-  min-height: 0;
-}
+	/* Keep the featured card's image square too */
+	.game-card--feature .art img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	.game-card--feature .art img.poster {
+		object-fit: contain;
+	}
 
 .art-label {
   position: absolute;
@@ -245,6 +252,8 @@ h2 {
   display: flex;
   flex: 1;
   flex-direction: column;
+	z-index: 2;
+	background-color: inherit;
 }
 .game-topline {
   display: flex;
@@ -419,10 +428,14 @@ h2 {
     grid-template-columns: 1fr;
   }
   .game-card--feature {
-    grid-column: span 1;
+    grid-column: 1 / -1;
     display: flex;
+    flex-direction: column;
   }
+
   .game-card--feature .art {
+    aspect-ratio: 1 / 1;
+    height: auto;
     min-height: 0;
   }
   .game-card--feature .game-body {
