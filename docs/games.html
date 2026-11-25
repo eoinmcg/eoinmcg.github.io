@@ -352,30 +352,58 @@ h2 {
   grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 0 2rem;
 }
-.archive li {
+
+.archive-item {
   border-top: 1px solid var(--rule);
 }
-.archive li a {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: .15rem 1rem;
-  padding: 1rem .2rem;
+
+.archive-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem .2rem;
+  color: inherit;
   text-decoration: none;
 }
+
+.archive-thumb {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: .45rem;          /* matches .game-card */
+  background: #183243;            /* matches .art, shows while loading or if a file is missing */
+  image-rendering: pixelated;     /* matches .art img */
+}
+
+.archive-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.archive-name,
+.archive-description {
+  display: block;
+}
+
 .archive-name {
   font-weight: 600;
 }
+
 .archive-description {
-  grid-row: 2;
-  grid-column: 1;
   color: var(--mute);
   font-size: .85rem;
 }
+
 .archive-arrow {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
+  flex: none;
   color: var(--accent);
+  transition: transform .2s;
+}
+
+.archive-link:hover .archive-arrow,
+.archive-link:focus-visible .archive-arrow {
+  transform: translate(2px, -2px);
 }
 .endnote {
   padding: 3.2rem 0 4rem;
@@ -553,26 +581,204 @@ h2 {
   <section class="archive-section" aria-labelledby="archive-title"><div class="wrap">
     <p class="eyebrow">The back catalogue</p><h2 id="archive-title">The archives</h2>
     <p class="archive-intro">An assortment of tiny games, jam entries and experiments from earlier days. Some are rough around the edges. That's part of the charm.</p>
-    <details class="archive"><summary>Browse the older games <span class="count">19 more</span><span class="expand" aria-hidden="true">+</span></summary><ul><li><a href="/mikrobee/"><span class="archive-name">MikroBee</span><span class="archive-description">LowRez Jam 2024 · 64×64 one-button shoot ’em up</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="/hungry-sheep/"><span class="archive-name">Hungry Sheep</span><span class="archive-description">ReactJam Spring 2024 · Honourable mention</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="/powersurge/"><span class="archive-name">Powersurge</span><span class="archive-description">Turn-based arcade game · Phaser.js</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="/bewitched/"><span class="archive-name">Bewitched!</span><span class="archive-description">2023 js13kgames entry · post-mortem available</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.itch.io/insecticide"><span class="archive-name">Insecticide</span><span class="archive-description">Tiny-scale mayhem · LowRez Jam</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="/enjoythesunshine/"><span class="archive-name">Enjoy the sunshine</span><span class="archive-description">2018 js13kgames · 2nd place in mobile</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/bunnylost"><span class="archive-name">Bunny Lost!</span><span class="archive-description">2017 js13kgames · 2nd place in mobile</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/dayoftheglitch"><span class="archive-name">Day of the Glitch</span><span class="archive-description">2016 js13kgames entry</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/poopy-river"><span class="archive-name">Poopy River</span><span class="archive-description">One-button jam experiment</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/whiskey-fever"><span class="archive-name">Whiskey Fever</span><span class="archive-description">A whiskey-fuelled Kaboom! homage</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/beast-feast"><span class="archive-name">Beast Feast</span><span class="archive-description">Local multiplayer for up to four players</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://www.lexaloffle.com/bbs/?autoplay=1&amp;tid=3003"><span class="archive-name">Piste Off</span><span class="archive-description">Made with PICO-8</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/moonshine/"><span class="archive-name">Escape from Skull Towers</span><span class="archive-description">Collect diamonds, chase combos, escape</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/roboflip/"><span class="archive-name">RoboFlip</span><span class="archive-description">2015 js13kgames entry</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/buzzoff/"><span class="archive-name">Buzz Off</span><span class="archive-description">2014 js13kgames entry</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/flappysaucer/"><span class="archive-name">Flappy Saucer</span><span class="archive-description">A flying saucer take on Flappy Bird</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/freebird/"><span class="archive-name">Freebird</span><span class="archive-description">Help the bird escape dangers in flight</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/mobile_snake/"><span class="archive-name">Mobile Snake</span><span class="archive-description">Classic mobile Snake with a published tutorial</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li>
-<li><a href="https://eoinmcg.github.io/bumblebomber/"><span class="archive-name">BumbleBomber</span><span class="archive-description">12-hour bullet-hell challenge</span><span class="archive-arrow" aria-hidden="true">↗</span></a></li></ul></details>
   </div></section>
+
+<details class="archive">
+  <summary>Browse the older games <span class="count">19 more</span><span class="expand" aria-hidden="true">+</span></summary>
+  <ul>
+    <li class="archive-item">
+      <a class="archive-link" href="/mikrobee/">
+        <img class="archive-thumb" src="/icons/mikrobee.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">MikroBee</span>
+          <span class="archive-description">LowRez Jam 2024 · 64×64 one-button shoot ’em up</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="/hungry-sheep/">
+        <img class="archive-thumb" src="/icons/hungry-sheep.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Hungry Sheep</span>
+          <span class="archive-description">ReactJam Spring 2024 · Honourable mention</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="/powersurge/">
+        <img class="archive-thumb" src="/icons/powersurge.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Powersurge</span>
+          <span class="archive-description">Turn-based arcade game · Phaser.js</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="/bewitched/">
+        <img class="archive-thumb" src="/icons/bewitched128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Bewitched!</span>
+          <span class="archive-description">2023 js13kgames entry · post-mortem available</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.itch.io/insecticide">
+        <img class="archive-thumb" src="/icons/insecticide.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Insecticide</span>
+          <span class="archive-description">Tiny-scale mayhem · LowRez Jam</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="/enjoythesunshine/">
+        <img class="archive-thumb" src="/icons/offline.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Enjoy the sunshine</span>
+          <span class="archive-description">2018 js13kgames · 2nd place in mobile</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/bunnylost">
+        <img class="archive-thumb" src="/icons/lost128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Bunny Lost!</span>
+          <span class="archive-description">2017 js13kgames · 2nd place in mobile</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/dayoftheglitch">
+        <img class="archive-thumb" src="/icons/glitch128.gif" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Day of the Glitch</span>
+          <span class="archive-description">2016 js13kgames entry</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/poopy-river">
+        <img class="archive-thumb" src="/icons/poopy128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Poopy River</span>
+          <span class="archive-description">One-button jam experiment</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/whiskey-fever">
+        <img class="archive-thumb" src="/icons/whiskey128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Whiskey Fever</span>
+          <span class="archive-description">A whiskey-fuelled Kaboom! homage</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/beast-feast">
+        <img class="archive-thumb" src="/icons/beast128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Beast Feast</span>
+          <span class="archive-description">Local multiplayer for up to four players</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://www.lexaloffle.com/bbs/?autoplay=1&amp;tid=3003">
+        <img class="archive-thumb" src="/icons/pisteoff128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Piste Off</span>
+          <span class="archive-description">Made with PICO-8</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/moonshine/">
+        <img class="archive-thumb" src="/icons/moonshine128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Escape from Skull Towers</span>
+          <span class="archive-description">Collect diamonds, chase combos, escape</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/roboflip/">
+        <img class="archive-thumb" src="/icons/roboflip128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">RoboFlip</span>
+          <span class="archive-description">2015 js13kgames entry</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/buzzoff/">
+        <img class="archive-thumb" src="/icons/buzzoff128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Buzz Off</span>
+          <span class="archive-description">2014 js13kgames entry</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/flappysaucer/">
+        <img class="archive-thumb" src="/icons/flappy128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Flappy Saucer</span>
+          <span class="archive-description">A flying saucer take on Flappy Bird</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/freebird/">
+        <img class="archive-thumb" src="/icons/freebird128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Freebird</span>
+          <span class="archive-description">Help the bird escape dangers in flight</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/mobile_snake/">
+        <img class="archive-thumb" src="/icons/snake128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">Mobile Snake</span>
+          <span class="archive-description">Classic mobile Snake with a published tutorial</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li class="archive-item">
+      <a class="archive-link" href="https://eoinmcg.github.io/bumblebomber/">
+        <img class="archive-thumb" src="/icons/bumbleicon128.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <span class="archive-text">
+          <span class="archive-name">BumbleBomber</span>
+          <span class="archive-description">12-hour bullet-hell challenge</span>
+        </span>
+        <span class="archive-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  </ul>
+</details>
+
   <section class="endnote"><div class="wrap endnote-inner"><div><p class="eyebrow">Back to the day job</p><h2>Need something a little more serious?</h2><p>I also build production web applications, modernise existing systems and help teams ship complicated things.</p></div><a class="btn" href="/#work">See my work <span aria-hidden="true">↗</span></a></div></section>
 </main>
 <footer><div class="wrap"><span>© Eoin McGrath</span><span>Side quests, built for fun. · <a href="/">Back to portfolio</a> · <a href="mailto:hi@eoinmcgrath.com">Say hello</a></span></div></footer>
